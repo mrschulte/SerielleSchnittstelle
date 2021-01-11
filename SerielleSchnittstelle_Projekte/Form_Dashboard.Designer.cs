@@ -70,6 +70,7 @@
             this.btn_voltmeter.TabIndex = 2;
             this.btn_voltmeter.Text = "Programm starten";
             this.btn_voltmeter.UseVisualStyleBackColor = true;
+            this.btn_voltmeter.Click += new System.EventHandler(this.btn_voltmeter_Click);
             // 
             // Form_Dashboard
             // 

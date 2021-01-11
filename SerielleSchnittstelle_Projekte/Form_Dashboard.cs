@@ -19,10 +19,19 @@ namespace SerielleSchnittstelle_Projekte
 
         private void btn_zeitdiagramm_Click(object sender, EventArgs e)
         {
+            //Zeitdiagrammprojekt starten
             Form_Zeitdiagramm zeitdiagramm = new Form_Zeitdiagramm();
             this.Hide();
             zeitdiagramm.ShowDialog();
             this.Close();
+        }
+
+        private void btn_voltmeter_Click(object sender, EventArgs e)
+        {
+            //Voltmeterprojekt starten
+            
+
+
         }
     }
 }
