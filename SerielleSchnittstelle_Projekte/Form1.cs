@@ -19,7 +19,7 @@ namespace SerielleSchnittstelle_Projekte
 
         private void button1_Click(object sender, EventArgs e)
         {
-            button1.Text = "Hallld";
+            button1.Text = "Halllds";
         }
     }
 }
