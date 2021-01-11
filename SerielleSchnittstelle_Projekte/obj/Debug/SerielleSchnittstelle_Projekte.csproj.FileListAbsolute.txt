@@ -9,3 +9,4 @@ C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git-Repo\SerielleSchnittste
 C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git-Repo\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.csproj.CoreCompileInputs.cache
 C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git-Repo\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.exe
 C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git-Repo\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.pdb
+C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git-Repo\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.Form_Voltmeter.resources

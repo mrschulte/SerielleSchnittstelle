@@ -8,9 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
-namespace SerialMonitor
+
+namespace SerielleSchnittstelle_Projekte
 {
-    public partial class Form1 : Form
+    public partial class Form_Voltmeter : Form
     {
 
         public delegate void SerialRead();
@@ -20,7 +21,7 @@ namespace SerialMonitor
         private int spannung2_raw = 0;
         private Boolean state; //Spannung 1 = true; Spannung 2 = false;
 
-        public Form1()
+        public Form_Voltmeter()
         {
             InitializeComponent();
             txtBx_data.Hide();
@@ -108,6 +109,21 @@ namespace SerialMonitor
             else
             {
                 txtBx_data.Hide();
+            }
+        }
+
+        private void btn_dashboard_Click(object sender, EventArgs e)
+        {
+            if(!serialPort1.IsOpen)
+            {
+                Form_Dashboard dashboard = new Form_Dashboard();
+                this.Hide();
+                dashboard.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Bitte unterbrechen Sie die Verbindung zur seriellen Schnittstelle");
             }
         }
     }

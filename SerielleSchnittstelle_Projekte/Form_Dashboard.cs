@@ -29,9 +29,10 @@ namespace SerielleSchnittstelle_Projekte
         private void btn_voltmeter_Click(object sender, EventArgs e)
         {
             //Voltmeterprojekt starten
-            
-
-
+            Form_Voltmeter voltmeter = new Form_Voltmeter();
+            this.Hide();
+            voltmeter.ShowDialog();
+            this.Close();
         }
     }
 }

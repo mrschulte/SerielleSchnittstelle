@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CDiagramme.cs" />
+    <Compile Include="Form_Voltmeter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Voltmeter.designer.cs">
+      <DependentUpon>Form_Voltmeter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +67,9 @@
     <Compile Include="Form_Zeitdiagramm.Designer.cs">
       <DependentUpon>Form_Zeitdiagramm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form_Voltmeter.resx">
+      <DependentUpon>Form_Voltmeter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Dashboard.resx">
       <DependentUpon>Form_Dashboard.cs</DependentUpon>
     </EmbeddedResource>

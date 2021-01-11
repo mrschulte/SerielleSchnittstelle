@@ -1,6 +1,6 @@
-﻿namespace SerialMonitor
+﻿namespace SerielleSchnittstelle_Projekte
 {
-    partial class Form1
+    partial class Form_Voltmeter
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -41,6 +41,7 @@
             this.value_voltage2 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btn_dashboard = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -94,7 +95,7 @@
             // 
             this.checkBox_console.AutoSize = true;
             this.checkBox_console.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold);
-            this.checkBox_console.Location = new System.Drawing.Point(596, 12);
+            this.checkBox_console.Location = new System.Drawing.Point(596, 418);
             this.checkBox_console.Name = "checkBox_console";
             this.checkBox_console.Size = new System.Drawing.Size(109, 20);
             this.checkBox_console.TabIndex = 4;
@@ -162,12 +163,23 @@
             this.label3.Text = "[V]";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Form1
+            // btn_dashboard
+            // 
+            this.btn_dashboard.Location = new System.Drawing.Point(630, 12);
+            this.btn_dashboard.Name = "btn_dashboard";
+            this.btn_dashboard.Size = new System.Drawing.Size(75, 23);
+            this.btn_dashboard.TabIndex = 11;
+            this.btn_dashboard.Text = "Dashboard";
+            this.btn_dashboard.UseVisualStyleBackColor = true;
+            this.btn_dashboard.Click += new System.EventHandler(this.btn_dashboard_Click);
+            // 
+            // Form_Voltmeter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(717, 450);
+            this.Controls.Add(this.btn_dashboard);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.value_voltage2);
@@ -179,8 +191,9 @@
             this.Controls.Add(this.txtBx_data);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox_ports);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Form_Voltmeter";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Form_Voltmeter";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,6 +213,7 @@
         private System.Windows.Forms.Label value_voltage2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_dashboard;
     }
 }
 
