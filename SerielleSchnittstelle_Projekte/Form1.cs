@@ -16,5 +16,10 @@ namespace SerielleSchnittstelle_Projekte
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            button1.Text = "Hall";
+        }
     }
 }
