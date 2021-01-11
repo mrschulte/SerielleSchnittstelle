@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Diagramme;
 
 namespace SerielleSchnittstelle_Projekte
 {
@@ -15,17 +16,29 @@ namespace SerielleSchnittstelle_Projekte
         public delegate void USARTLesen();
         public USARTLesen USARTLesenPtr;
 
+        private CDiagramme diagramm;
+        private PointF[] array_points;
+        float t = 0;
+        int zaehler = 1;
+        
+
         public Form_Zeitdiagramm()
         {
             InitializeComponent();
             loadComboBox();
 
             USARTLesenPtr = new USARTLesen(serialPort_Read);
+
+            //Aufsetzen der CDiagramme-Klasse
+            diagramm = new CDiagramme(pictureBox1, "Zeitdiagramm");
+            array_points = new PointF[10000];
+            diagramm.PositionUrsprung = "unten-links";
+            diagramm.Teilung_Y = 30;
         }
 
         private void btn_connect_Click(object sender, EventArgs e)
         {
-            //Verbindung zu serielle Port aufbauen / unterbrechen
+            //Verbindung zu seriellen Port aufbauen / unterbrechen
 
             if(!serialPort1.IsOpen)
             {
@@ -49,8 +62,23 @@ namespace SerielleSchnittstelle_Projekte
             }
             else
             {
-                serialPort1.Close();
-                btn_connect.Text = "Verbinden";
+                if(comboBox1.SelectedItem != null)
+                {
+                    if(comboBox1.SelectedItem.ToString() == serialPort1.PortName)
+                    {
+                        serialPort1.Close();
+                        btn_connect.Text = "Verbinden";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bitte wählen Sie den richtigen COM-Port aus");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Bitte wählen Sie den richtigen COM-Port aus");
+                }
+                
             }
 
         }
@@ -62,6 +90,16 @@ namespace SerielleSchnittstelle_Projekte
             string line = serialPort1.ReadLine();
 
             txtBx_output.Text += line + "\n";
+
+            array_points[zaehler].X = t;
+            array_points[zaehler].Y = (float)Convert.ToDouble(line);
+            array_points[0].X = zaehler;
+            t += (float)0.1;
+            zaehler++;
+            if (array_points[0].X > 1)
+            {
+                diagramm.Zeitdiagrammzeichnen(array_points, true);
+            }
         }
 
         private void loadComboBox()
@@ -85,6 +123,21 @@ namespace SerielleSchnittstelle_Projekte
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             this.Invoke(USARTLesenPtr);
+        }
+
+        private void btn_dashboard_Click(object sender, EventArgs e)
+        {
+            if (!serialPort1.IsOpen)
+            {
+                Form_Dashboard dashboard = new Form_Dashboard();
+                this.Hide();
+                dashboard.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Bitte unterbrechen Sie zuerst die Verbindung zur seriellen Schnittstelle");
+            }
         }
     }
 }
