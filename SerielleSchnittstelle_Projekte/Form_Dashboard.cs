@@ -10,16 +10,19 @@ using System.Windows.Forms;
 
 namespace SerielleSchnittstelle_Projekte
 {
-    public partial class Form1 : Form
+    public partial class Form_Dashboard : Form
     {
-        public Form1()
+        public Form_Dashboard()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_zeitdiagramm_Click(object sender, EventArgs e)
         {
-            button1.Text = "Halllds";
+            Form_Zeitdiagramm zeitdiagramm = new Form_Zeitdiagramm();
+            this.Hide();
+            zeitdiagramm.ShowDialog();
+            this.Close();
         }
     }
 }
