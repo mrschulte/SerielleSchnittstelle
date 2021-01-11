@@ -50,6 +50,7 @@
             // 
             // comboBox_ports
             // 
+            this.comboBox_ports.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.comboBox_ports.FormattingEnabled = true;
             this.comboBox_ports.Location = new System.Drawing.Point(41, 56);
             this.comboBox_ports.Name = "comboBox_ports";
@@ -61,6 +62,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.label1.Location = new System.Drawing.Point(38, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 23);
@@ -70,6 +72,7 @@
             // 
             // txtBx_data
             // 
+            this.txtBx_data.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtBx_data.Location = new System.Drawing.Point(417, 56);
             this.txtBx_data.Multiline = true;
             this.txtBx_data.Name = "txtBx_data";
@@ -79,10 +82,12 @@
             // 
             // btn_connect
             // 
-            this.btn_connect.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_connect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.btn_connect.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn_connect.FlatAppearance.BorderSize = 2;
-            this.btn_connect.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btn_connect.FlatAppearance.BorderSize = 0;
+            this.btn_connect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_connect.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
+            this.btn_connect.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_connect.Location = new System.Drawing.Point(41, 95);
             this.btn_connect.Name = "btn_connect";
             this.btn_connect.Size = new System.Drawing.Size(173, 30);
@@ -95,6 +100,7 @@
             // 
             this.checkBox_console.AutoSize = true;
             this.checkBox_console.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold);
+            this.checkBox_console.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.checkBox_console.Location = new System.Drawing.Point(596, 418);
             this.checkBox_console.Name = "checkBox_console";
             this.checkBox_console.Size = new System.Drawing.Size(109, 20);
@@ -106,6 +112,7 @@
             // label_voltage1
             // 
             this.label_voltage1.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_voltage1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.label_voltage1.Location = new System.Drawing.Point(38, 175);
             this.label_voltage1.Name = "label_voltage1";
             this.label_voltage1.Size = new System.Drawing.Size(100, 23);
@@ -116,6 +123,7 @@
             // label_voltage2
             // 
             this.label_voltage2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label_voltage2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.label_voltage2.Location = new System.Drawing.Point(38, 243);
             this.label_voltage2.Name = "label_voltage2";
             this.label_voltage2.Size = new System.Drawing.Size(100, 29);
@@ -146,6 +154,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.label2.Location = new System.Drawing.Point(144, 201);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 23);
@@ -156,6 +165,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.label3.Location = new System.Drawing.Point(144, 272);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 23);
@@ -165,19 +175,24 @@
             // 
             // btn_dashboard
             // 
-            this.btn_dashboard.Location = new System.Drawing.Point(630, 12);
+            this.btn_dashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btn_dashboard.FlatAppearance.BorderSize = 0;
+            this.btn_dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_dashboard.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
+            this.btn_dashboard.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_dashboard.Location = new System.Drawing.Point(596, 12);
             this.btn_dashboard.Name = "btn_dashboard";
-            this.btn_dashboard.Size = new System.Drawing.Size(75, 23);
+            this.btn_dashboard.Size = new System.Drawing.Size(109, 23);
             this.btn_dashboard.TabIndex = 11;
             this.btn_dashboard.Text = "Dashboard";
-            this.btn_dashboard.UseVisualStyleBackColor = true;
+            this.btn_dashboard.UseVisualStyleBackColor = false;
             this.btn_dashboard.Click += new System.EventHandler(this.btn_dashboard_Click);
             // 
             // Form_Voltmeter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(194)))), ((int)(((byte)(214)))));
             this.ClientSize = new System.Drawing.Size(717, 450);
             this.Controls.Add(this.btn_dashboard);
             this.Controls.Add(this.label3);
