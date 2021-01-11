@@ -30,6 +30,8 @@
         {
             this.btn_zeitdiagramm = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btn_voltmeter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_zeitdiagramm
@@ -51,11 +53,31 @@
             this.label1.Text = "Zeitdiagramm";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(191, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 23);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Voltmeter";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_voltmeter
+            // 
+            this.btn_voltmeter.Location = new System.Drawing.Point(194, 35);
+            this.btn_voltmeter.Name = "btn_voltmeter";
+            this.btn_voltmeter.Size = new System.Drawing.Size(105, 23);
+            this.btn_voltmeter.TabIndex = 2;
+            this.btn_voltmeter.Text = "Programm starten";
+            this.btn_voltmeter.UseVisualStyleBackColor = true;
+            // 
             // Form_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btn_voltmeter);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_zeitdiagramm);
             this.Name = "Form_Dashboard";
@@ -69,6 +91,8 @@
 
         private System.Windows.Forms.Button btn_zeitdiagramm;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_voltmeter;
     }
 }
 
