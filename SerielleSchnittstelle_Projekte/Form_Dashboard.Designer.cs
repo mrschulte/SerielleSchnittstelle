@@ -36,10 +36,11 @@
             // 
             // btn_zeitdiagramm
             // 
-            this.btn_zeitdiagramm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btn_zeitdiagramm.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_zeitdiagramm.FlatAppearance.BorderSize = 0;
             this.btn_zeitdiagramm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_zeitdiagramm.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_zeitdiagramm.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_zeitdiagramm.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_zeitdiagramm.Location = new System.Drawing.Point(67, 74);
             this.btn_zeitdiagramm.Name = "btn_zeitdiagramm";
             this.btn_zeitdiagramm.Size = new System.Drawing.Size(130, 30);
@@ -72,10 +73,11 @@
             // 
             // btn_voltmeter
             // 
-            this.btn_voltmeter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btn_voltmeter.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_voltmeter.FlatAppearance.BorderSize = 0;
             this.btn_voltmeter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_voltmeter.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_voltmeter.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_voltmeter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_voltmeter.Location = new System.Drawing.Point(246, 74);
             this.btn_voltmeter.Name = "btn_voltmeter";
             this.btn_voltmeter.Size = new System.Drawing.Size(130, 30);
@@ -88,7 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(194)))), ((int)(((byte)(214)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_voltmeter);

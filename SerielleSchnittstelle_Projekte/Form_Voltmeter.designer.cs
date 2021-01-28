@@ -82,12 +82,12 @@
             // 
             // btn_connect
             // 
-            this.btn_connect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btn_connect.BackColor = System.Drawing.Color.DarkGray;
             this.btn_connect.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_connect.FlatAppearance.BorderSize = 0;
             this.btn_connect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_connect.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            this.btn_connect.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_connect.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_connect.Location = new System.Drawing.Point(41, 95);
             this.btn_connect.Name = "btn_connect";
             this.btn_connect.Size = new System.Drawing.Size(173, 30);
@@ -175,11 +175,11 @@
             // 
             // btn_dashboard
             // 
-            this.btn_dashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btn_dashboard.BackColor = System.Drawing.Color.DarkGray;
             this.btn_dashboard.FlatAppearance.BorderSize = 0;
             this.btn_dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_dashboard.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            this.btn_dashboard.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_dashboard.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_dashboard.Location = new System.Drawing.Point(596, 12);
             this.btn_dashboard.Name = "btn_dashboard";
             this.btn_dashboard.Size = new System.Drawing.Size(109, 23);
@@ -192,7 +192,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(194)))), ((int)(((byte)(214)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(717, 450);
             this.Controls.Add(this.btn_dashboard);
             this.Controls.Add(this.label3);
