@@ -88,18 +88,29 @@ namespace SerielleSchnittstelle_Projekte
             //Daten von serieller Schnittstelle auslesen und verarbeiten
 
             string line = serialPort1.ReadLine();
-
-            txtBx_output.Text += line + "\n";
-
-            array_points[zaehler].X = t;
-            array_points[zaehler].Y = (float)Convert.ToDouble(line);
-            array_points[0].X = zaehler;
+            updateCDiagramme((float)Convert.ToDouble(line));
+            updateChart(Convert.ToDouble(line));
             t += (float)0.1;
+            txtBx_output.Text += (line + "\n");
+
+            
+        }
+
+        private void updateCDiagramme(float value_y)
+        {
+            array_points[zaehler].X = t;
+            array_points[zaehler].Y = value_y;
+            array_points[0].X = zaehler;
             zaehler++;
             if (array_points[0].X > 1)
             {
                 diagramm.Zeitdiagrammzeichnen(array_points, true);
             }
+        }
+
+        private void updateChart(double value_y)
+        {
+            chart1.Series["Series1"].Points.AddXY(t, value_y);
         }
 
         private void loadComboBox()
