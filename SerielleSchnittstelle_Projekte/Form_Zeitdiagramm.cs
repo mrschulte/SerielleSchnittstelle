@@ -18,7 +18,7 @@ namespace SerielleSchnittstelle_Projekte
 
         private CDiagramme diagramm;
         private PointF[] array_points;
-        float t = 0;
+        int t = 0;
         int zaehler = 1;
         
 
@@ -28,6 +28,8 @@ namespace SerielleSchnittstelle_Projekte
             loadComboBox();
 
             USARTLesenPtr = new USARTLesen(serialPort_Read);
+            chart1.ChartAreas[0].AxisX.Minimum = 0;
+            chart1.ChartAreas[0].AxisY.Minimum = 0;
 
             //Aufsetzen der CDiagramme-Klasse
             diagramm = new CDiagramme(pictureBox1, "Zeitdiagramm");
@@ -90,7 +92,7 @@ namespace SerielleSchnittstelle_Projekte
             string line = serialPort1.ReadLine();
             updateCDiagramme((float)Convert.ToDouble(line));
             updateChart(Convert.ToDouble(line));
-            t += (float)0.1;
+            t += 1;
             txtBx_output.Text += (line + "\n");
 
             
