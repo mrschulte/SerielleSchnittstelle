@@ -10,3 +10,15 @@ C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git-Repo\SerielleSchnittste
 C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git-Repo\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.exe
 C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git-Repo\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.pdb
 C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git-Repo\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.Form_Voltmeter.resources
+C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git_SerielleSchnittstelleProjekte\SerielleSchnittstelle_Projekte\bin\Debug\SerielleSchnittstelle_Projekte.exe.config
+C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git_SerielleSchnittstelleProjekte\SerielleSchnittstelle_Projekte\bin\Debug\SerielleSchnittstelle_Projekte.exe
+C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git_SerielleSchnittstelleProjekte\SerielleSchnittstelle_Projekte\bin\Debug\SerielleSchnittstelle_Projekte.pdb
+C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git_SerielleSchnittstelleProjekte\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.csprojAssemblyReference.cache
+C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git_SerielleSchnittstelleProjekte\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.Form_Voltmeter.resources
+C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git_SerielleSchnittstelleProjekte\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.Form_Dashboard.resources
+C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git_SerielleSchnittstelleProjekte\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.Properties.Resources.resources
+C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git_SerielleSchnittstelleProjekte\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.Form_Zeitdiagramm.resources
+C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git_SerielleSchnittstelleProjekte\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.csproj.GenerateResource.cache
+C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git_SerielleSchnittstelleProjekte\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.csproj.CoreCompileInputs.cache
+C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git_SerielleSchnittstelleProjekte\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.exe
+C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git_SerielleSchnittstelleProjekte\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.pdb

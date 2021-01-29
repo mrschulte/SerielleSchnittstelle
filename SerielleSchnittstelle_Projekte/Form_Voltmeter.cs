@@ -13,29 +13,24 @@ namespace SerielleSchnittstelle_Projekte
 {
     public partial class Form_Voltmeter : Form
     {
-
         public delegate void SerialRead();
         public SerialRead SerialReadPointer;
 
         private int spannung1_raw = 0;
         private int spannung2_raw = 0;
-        private Boolean state; //Spannung 1 = true; Spannung 2 = false;
 
         public Form_Voltmeter()
         {
             InitializeComponent();
-            txtBx_data.Hide();
-            state = false;
+
             SerialReadPointer = new SerialRead(serialRead);
-            
+            txtBx_data.Hide();
 
             string[] portnames = SerialPort.GetPortNames();
-            comboBox_ports.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_ports.Items.AddRange(portnames);           
-
-
         }
 
+        // Liste der verfügbaren Ports akutalisieren
         private void comboBox_ports_DropDown(object sender, EventArgs e)
         {
             comboBox_ports.Items.Clear();
@@ -80,7 +75,6 @@ namespace SerielleSchnittstelle_Projekte
 
         private void serialRead()
         {
-
             string recieved = serialPort1.ReadLine();
             
             if(recieved[recieved.Length-2] == '!')
@@ -94,6 +88,7 @@ namespace SerielleSchnittstelle_Projekte
 
             txtBx_data.Text += "Spannung 1: " + spannung1_raw.ToString() + "\r\n";
             txtBx_data.Text += "Spannung 2: " + spannung2_raw.ToString() + "\r\n";
+            txtBx_data.Select(txtBx_data.Text.Length, 0);
             txtBx_data.ScrollToCaret();
 
             value_voltage1.Text = ((4.77 / 1023) * spannung1_raw).ToString("0.00");

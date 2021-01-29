@@ -51,6 +51,7 @@
             // comboBox_ports
             // 
             this.comboBox_ports.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.comboBox_ports.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_ports.FormattingEnabled = true;
             this.comboBox_ports.Location = new System.Drawing.Point(41, 56);
             this.comboBox_ports.Name = "comboBox_ports";
@@ -76,6 +77,7 @@
             this.txtBx_data.Location = new System.Drawing.Point(417, 56);
             this.txtBx_data.Multiline = true;
             this.txtBx_data.Name = "txtBx_data";
+            this.txtBx_data.ReadOnly = true;
             this.txtBx_data.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtBx_data.Size = new System.Drawing.Size(288, 356);
             this.txtBx_data.TabIndex = 2;
