@@ -80,8 +80,8 @@ namespace SerielleSchnittstelle_Projekte
 
         private void serialRead()
         {
-            string recieved = serialPort1.ReadLine();
 
+            string recieved = serialPort1.ReadLine();
             
             if(recieved[recieved.Length-2] == '!')
             {
