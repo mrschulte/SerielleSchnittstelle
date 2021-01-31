@@ -31,6 +31,12 @@ namespace SerielleSchnittstelle_Projekte
             chart1.ChartAreas[0].AxisX.Minimum = 0;
             chart1.ChartAreas[0].AxisY.Minimum = 0;
 
+            chart1.ChartAreas[0].CursorX.LineColor = Color.Red;
+            chart1.ChartAreas[0].CursorX.LineWidth = 2;
+            chart1.ChartAreas[0].CursorY.LineColor = Color.Red;
+            chart1.ChartAreas[0].CursorY.LineWidth = 2;
+
+
             //Aufsetzen der CDiagramme-Klasse
             diagramm = new CDiagramme(pictureBox1, "Zeitdiagramm");
             array_points = new PointF[10000];
@@ -38,10 +44,9 @@ namespace SerielleSchnittstelle_Projekte
             diagramm.Teilung_Y = 30;
         }
 
+        //Verbindung zu seriellen Port aufbauen / unterbrechen
         private void btn_connect_Click(object sender, EventArgs e)
         {
-            //Verbindung zu seriellen Port aufbauen / unterbrechen
-
             if(!serialPort1.IsOpen)
             {
                 if(comboBox1.SelectedItem != null)
@@ -79,25 +84,21 @@ namespace SerielleSchnittstelle_Projekte
                 else
                 {
                     MessageBox.Show("Bitte wählen Sie den richtigen COM-Port aus");
-                }
-                
+                }                
             }
-
         }
 
+        //Daten von serieller Schnittstelle auslesen und verarbeiten
         private void serialPort_Read()
         {
-            //Daten von serieller Schnittstelle auslesen und verarbeiten
-
             string line = serialPort1.ReadLine();
             updateCDiagramme((float)Convert.ToDouble(line));
             updateChart(Convert.ToDouble(line));
             t += 1;
-            txtBx_output.Text += (line + "\n");
-
-            
+            txtBx_output.Text += (line + "\n");    
         }
 
+        //Empfangene Daten in CDiagramme eintragen
         private void updateCDiagramme(float value_y)
         {
             array_points[zaehler].X = t;
@@ -110,22 +111,18 @@ namespace SerielleSchnittstelle_Projekte
             }
         }
 
+        //Empfangene Daten in Chart eintragen
         private void updateChart(double value_y)
         {
-            chart1.Series["Series1"].Points.AddXY(t, value_y);
+            chart1.Series["Messung1"].Points.AddXY(t, value_y);
         }
 
+        //Verfügbaren COM-Ports in der ComboBox auflisten
         private void loadComboBox()
         {
-            //Verfügbaren COM-Ports in der ComboBox auflisten
-
             string[] portnames = System.IO.Ports.SerialPort.GetPortNames();
             comboBox1.Items.Clear();
-
-            foreach(string portname in portnames)
-            {
-                comboBox1.Items.Add(portname);
-            }
+            comboBox1.Items.AddRange(portnames);
         }
 
         private void comboBox1_DropDown(object sender, EventArgs e)
@@ -151,6 +148,25 @@ namespace SerielleSchnittstelle_Projekte
             {
                 MessageBox.Show("Bitte unterbrechen Sie zuerst die Verbindung zur seriellen Schnittstelle");
             }
+        }
+
+        private void btn_color_Click(object sender, EventArgs e)
+        {
+            DialogResult result = colorDialog1.ShowDialog();
+
+            if(result == DialogResult.OK)
+            {
+                chart1.Series["Messung1"].Color = colorDialog1.Color;
+            }
+
+        }
+
+        private void chart1_MouseMove(object sender, MouseEventArgs e)
+        {
+            double xvalue = chart1.ChartAreas[0].AxisX.PixelPositionToValue(e.X);
+            double yvalue = chart1.ChartAreas[0].AxisY.PixelPositionToValue(e.Y);
+            labelxvalue.Text = Math.Round(xvalue, 2).ToString();
+            labelyvalue.Text = Math.Round(yvalue, 2).ToString();
         }
     }
 }

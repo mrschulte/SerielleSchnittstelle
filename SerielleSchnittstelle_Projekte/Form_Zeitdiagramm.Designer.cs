@@ -33,8 +33,6 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btn_dashboard = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,21 +40,29 @@
             this.txtBx_output = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btn_connect = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btn_color = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.labelx = new System.Windows.Forms.Label();
+            this.labely = new System.Windows.Forms.Label();
+            this.labelxvalue = new System.Windows.Forms.Label();
+            this.labelyvalue = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -64,27 +70,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(800, 450);
             this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.pictureBox1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(792, 424);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Zeitdiagramm_CDiagramme";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Silver;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(786, 418);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // tabPage2
             // 
@@ -99,7 +84,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(792, 424);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Service";
+            this.tabPage2.Text = "Einstellungen";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btn_dashboard
@@ -107,6 +92,7 @@
             this.btn_dashboard.BackColor = System.Drawing.Color.DarkGray;
             this.btn_dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_dashboard.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_dashboard.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_dashboard.Location = new System.Drawing.Point(709, 6);
             this.btn_dashboard.Name = "btn_dashboard";
             this.btn_dashboard.Size = new System.Drawing.Size(75, 23);
@@ -165,8 +151,34 @@
             this.btn_connect.UseVisualStyleBackColor = false;
             this.btn_connect.Click += new System.EventHandler(this.btn_connect_Click);
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.pictureBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(792, 424);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Zeitdiagramm_CDiagramme";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Silver;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(786, 418);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.labelyvalue);
+            this.tabPage3.Controls.Add(this.labelxvalue);
+            this.tabPage3.Controls.Add(this.labely);
+            this.tabPage3.Controls.Add(this.labelx);
+            this.tabPage3.Controls.Add(this.btn_color);
             this.tabPage3.Controls.Add(this.chart1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -176,27 +188,77 @@
             this.tabPage3.Text = "Zeitdiagramm_Charts";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // btn_color
+            // 
+            this.btn_color.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_color.Location = new System.Drawing.Point(683, 393);
+            this.btn_color.Name = "btn_color";
+            this.btn_color.Size = new System.Drawing.Size(101, 23);
+            this.btn_color.TabIndex = 1;
+            this.btn_color.Text = "Farbe";
+            this.btn_color.UseVisualStyleBackColor = true;
+            this.btn_color.Click += new System.EventHandler(this.btn_color_Click);
+            // 
             // chart1
             // 
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Cursor = System.Windows.Forms.Cursors.Cross;
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
+            legend1.Title = "Diagramme";
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(3, 3);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "Messung1";
             this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(786, 418);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
+            this.chart1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseMove);
             // 
             // serialPort1
             // 
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            // 
+            // labelx
+            // 
+            this.labelx.Location = new System.Drawing.Point(680, 335);
+            this.labelx.Name = "labelx";
+            this.labelx.Size = new System.Drawing.Size(27, 20);
+            this.labelx.TabIndex = 2;
+            this.labelx.Text = "X:";
+            this.labelx.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labely
+            // 
+            this.labely.Location = new System.Drawing.Point(680, 355);
+            this.labely.Name = "labely";
+            this.labely.Size = new System.Drawing.Size(27, 20);
+            this.labely.TabIndex = 3;
+            this.labely.Text = "Y:";
+            this.labely.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelxvalue
+            // 
+            this.labelxvalue.AutoSize = true;
+            this.labelxvalue.Location = new System.Drawing.Point(713, 339);
+            this.labelxvalue.Name = "labelxvalue";
+            this.labelxvalue.Size = new System.Drawing.Size(35, 13);
+            this.labelxvalue.TabIndex = 4;
+            this.labelxvalue.Text = "label3";
+            // 
+            // labelyvalue
+            // 
+            this.labelyvalue.AutoSize = true;
+            this.labelyvalue.Location = new System.Drawing.Point(713, 362);
+            this.labelyvalue.Name = "labelyvalue";
+            this.labelyvalue.Size = new System.Drawing.Size(35, 13);
+            this.labelyvalue.TabIndex = 5;
+            this.labelyvalue.Text = "label4";
             // 
             // Form_Zeitdiagramm
             // 
@@ -208,11 +270,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Zeitdiagramm";
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
@@ -233,5 +296,11 @@
         private System.Windows.Forms.Button btn_dashboard;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button btn_color;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Label labelyvalue;
+        private System.Windows.Forms.Label labelxvalue;
+        private System.Windows.Forms.Label labely;
+        private System.Windows.Forms.Label labelx;
     }
 }
