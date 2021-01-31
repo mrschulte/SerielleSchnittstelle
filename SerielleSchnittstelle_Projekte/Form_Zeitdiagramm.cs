@@ -31,11 +31,6 @@ namespace SerielleSchnittstelle_Projekte
             chart1.ChartAreas[0].AxisX.Minimum = 0;
             chart1.ChartAreas[0].AxisY.Minimum = 0;
 
-            chart1.ChartAreas[0].CursorX.LineColor = Color.Red;
-            chart1.ChartAreas[0].CursorX.LineWidth = 2;
-            chart1.ChartAreas[0].CursorY.LineColor = Color.Red;
-            chart1.ChartAreas[0].CursorY.LineWidth = 2;
-
 
             //Aufsetzen der CDiagramme-Klasse
             diagramm = new CDiagramme(pictureBox1, "Zeitdiagramm");
