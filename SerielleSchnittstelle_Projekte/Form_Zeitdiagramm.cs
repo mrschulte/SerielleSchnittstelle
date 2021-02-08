@@ -16,6 +16,8 @@ namespace SerielleSchnittstelle_Projekte
         public delegate void USARTLesen();
         public USARTLesen USARTLesenPtr;
 
+        private System.Diagnostics.Stopwatch stopwatch;
+
         private CDiagramme diagramm;
         private PointF[] array_points;
         int t = 0;
@@ -31,12 +33,14 @@ namespace SerielleSchnittstelle_Projekte
             chart1.ChartAreas[0].AxisX.Minimum = 0;
             chart1.ChartAreas[0].AxisY.Minimum = 0;
 
+            stopwatch = new System.Diagnostics.Stopwatch();
 
             //Aufsetzen der CDiagramme-Klasse
             diagramm = new CDiagramme(pictureBox1, "Zeitdiagramm");
             array_points = new PointF[10000];
             diagramm.PositionUrsprung = "unten-links";
-            diagramm.Teilung_Y = 30;
+            diagramm.Teilung_Y = 1;
+            diagramm.Anzahl_Teilungen_Y = 5;
         }
 
         //Verbindung zu seriellen Port aufbauen / unterbrechen
@@ -68,6 +72,10 @@ namespace SerielleSchnittstelle_Projekte
                 {
                     if(comboBox1.SelectedItem.ToString() == serialPort1.PortName)
                     {
+                        if(stopwatch.IsRunning)
+                        {
+                            stopwatch.Stop();
+                        }
                         serialPort1.Close();
                         btn_connect.Text = "Verbinden";
                     }
@@ -86,9 +94,15 @@ namespace SerielleSchnittstelle_Projekte
         //Daten von serieller Schnittstelle auslesen und verarbeiten
         private void serialPort_Read()
         {
+            if(!stopwatch.IsRunning)
+            {
+                stopwatch.Start();
+            }
             string line = serialPort1.ReadLine();
-            updateCDiagramme((float)Convert.ToDouble(line));
-            updateChart(Convert.ToDouble(line));
+            double spannung_raw = Convert.ToDouble(line);
+            float value_spannung =  (float) (spannung_raw * (5.00 / 1023.00));
+            updateCDiagramme(value_spannung);
+            updateChart(Convert.ToDouble(value_spannung));
             t += 1;
             txtBx_output.Text += (line + "\n");    
         }
@@ -96,7 +110,7 @@ namespace SerielleSchnittstelle_Projekte
         //Empfangene Daten in CDiagramme eintragen
         private void updateCDiagramme(float value_y)
         {
-            array_points[zaehler].X = t;
+            array_points[zaehler].X = stopwatch.ElapsedMilliseconds / 1000;
             array_points[zaehler].Y = value_y;
             array_points[0].X = zaehler;
             zaehler++;
@@ -109,7 +123,7 @@ namespace SerielleSchnittstelle_Projekte
         //Empfangene Daten in Chart eintragen
         private void updateChart(double value_y)
         {
-            chart1.Series["Messung1"].Points.AddXY(t, value_y);
+            chart1.Series["Messung1"].Points.AddXY(stopwatch.ElapsedMilliseconds / 1000, value_y);
         }
 
         //Verfügbaren COM-Ports in der ComboBox auflisten
@@ -158,10 +172,27 @@ namespace SerielleSchnittstelle_Projekte
 
         private void chart1_MouseMove(object sender, MouseEventArgs e)
         {
-            double xvalue = chart1.ChartAreas[0].AxisX.PixelPositionToValue(e.X);
-            double yvalue = chart1.ChartAreas[0].AxisY.PixelPositionToValue(e.Y);
-            labelxvalue.Text = Math.Round(xvalue, 2).ToString();
-            labelyvalue.Text = Math.Round(yvalue, 2).ToString();
+            try
+            {
+                double xvalue = chart1.ChartAreas[0].AxisX.PixelPositionToValue(e.X);
+                double yvalue = chart1.ChartAreas[0].AxisY.PixelPositionToValue(e.Y);
+                labelxvalue.Text = Math.Round(xvalue, 2).ToString();
+                labelyvalue.Text = Math.Round(yvalue, 2).ToString();
+            }
+            catch { }
+        }
+
+        private void btn_strenghtp_Click(object sender, EventArgs e)
+        {
+            chart1.Series["Messung1"].BorderWidth++;
+        }
+
+        private void btn_strenghtm_Click(object sender, EventArgs e)
+        {
+            if(chart1.Series["Messung1"].BorderWidth != 1)
+            {
+                chart1.Series["Messung1"].BorderWidth--;
+            }
         }
     }
 }

@@ -32,6 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_voltmeter = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btn_seriellekommunikation = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_zeitdiagramm
@@ -40,7 +42,7 @@
             this.btn_zeitdiagramm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_zeitdiagramm.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_zeitdiagramm.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_zeitdiagramm.Location = new System.Drawing.Point(67, 74);
+            this.btn_zeitdiagramm.Location = new System.Drawing.Point(67, 86);
             this.btn_zeitdiagramm.Name = "btn_zeitdiagramm";
             this.btn_zeitdiagramm.Size = new System.Drawing.Size(130, 30);
             this.btn_zeitdiagramm.TabIndex = 0;
@@ -76,7 +78,7 @@
             this.btn_voltmeter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_voltmeter.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_voltmeter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_voltmeter.Location = new System.Drawing.Point(246, 74);
+            this.btn_voltmeter.Location = new System.Drawing.Point(246, 86);
             this.btn_voltmeter.Name = "btn_voltmeter";
             this.btn_voltmeter.Size = new System.Drawing.Size(130, 30);
             this.btn_voltmeter.TabIndex = 2;
@@ -84,12 +86,39 @@
             this.btn_voltmeter.UseVisualStyleBackColor = false;
             this.btn_voltmeter.Click += new System.EventHandler(this.btn_voltmeter_Click);
             // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.label3.Location = new System.Drawing.Point(423, 48);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(130, 35);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Serielle Kommunikation";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_seriellekommunikation
+            // 
+            this.btn_seriellekommunikation.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_seriellekommunikation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_seriellekommunikation.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_seriellekommunikation.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_seriellekommunikation.Location = new System.Drawing.Point(423, 86);
+            this.btn_seriellekommunikation.Name = "btn_seriellekommunikation";
+            this.btn_seriellekommunikation.Size = new System.Drawing.Size(130, 30);
+            this.btn_seriellekommunikation.TabIndex = 4;
+            this.btn_seriellekommunikation.Text = "Programm starten";
+            this.btn_seriellekommunikation.UseVisualStyleBackColor = false;
+            this.btn_seriellekommunikation.Click += new System.EventHandler(this.btn_seriellekommunikation_Click);
+            // 
             // Form_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btn_seriellekommunikation);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_voltmeter);
             this.Controls.Add(this.label1);
@@ -108,6 +137,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_voltmeter;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_seriellekommunikation;
     }
 }
 

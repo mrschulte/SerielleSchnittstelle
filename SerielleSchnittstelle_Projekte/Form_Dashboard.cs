@@ -34,5 +34,12 @@ namespace SerielleSchnittstelle_Projekte
             voltmeter.ShowDialog();
             this.Close();
         }
+
+        private void btn_seriellekommunikation_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Form_Kommunikation().ShowDialog();
+            this.Close();
+        }
     }
 }
