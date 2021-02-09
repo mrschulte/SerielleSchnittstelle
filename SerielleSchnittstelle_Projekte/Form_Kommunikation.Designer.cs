@@ -53,6 +53,7 @@
             this.cbstate_6 = new System.Windows.Forms.CheckBox();
             this.cbstate_7 = new System.Windows.Forms.CheckBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // combobx_ports
@@ -303,11 +304,24 @@
             this.cbstate_7.UseVisualStyleBackColor = true;
             this.cbstate_7.CheckedChanged += new System.EventHandler(this.cbstate_7_CheckedChanged);
             // 
+            // serialPort1
+            // 
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(452, 12);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(310, 162);
+            this.textBox1.TabIndex = 23;
+            // 
             // Form_Kommunikation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 186);
+            this.ClientSize = new System.Drawing.Size(774, 186);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.cbstate_0);
             this.Controls.Add(this.cbstate_1);
             this.Controls.Add(this.cbstate_2);
@@ -365,5 +379,6 @@
         private System.Windows.Forms.CheckBox cbstate_6;
         private System.Windows.Forms.CheckBox cbstate_7;
         private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

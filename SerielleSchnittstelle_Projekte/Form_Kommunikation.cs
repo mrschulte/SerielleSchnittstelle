@@ -16,6 +16,9 @@ namespace SerielleSchnittstelle_Projekte
         private string registerIO { get; set; }
         private string registerBits { get; set; }
 
+        private delegate void SerialReader();
+        private SerialReader SerialReadPointer;
+
         public Form_Kommunikation()
         {
             InitializeComponent();
@@ -26,12 +29,18 @@ namespace SerielleSchnittstelle_Projekte
             rb_d.Checked = true;
             combobx_ports.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
             combobx_ports.SelectedIndex = 0;
+            SerialReadPointer = new SerialReader(SerialRead);
         }
 
         private void combobx_ports_DropDown(object sender, EventArgs e)
         {
             combobx_ports.Items.Clear();
             combobx_ports.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
+        }
+
+        private void SerialRead()
+        {
+            textBox1.Text += serialPort1.ReadLine();
         }
 
         private void rb_d_CheckedChanged(object sender, EventArgs e)
@@ -242,6 +251,11 @@ namespace SerielleSchnittstelle_Projekte
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            this.Invoke(SerialReadPointer);
         }
     }
 }

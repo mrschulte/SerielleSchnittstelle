@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1607338762 source:c:\users\mrsch\documents\schule\automation\4. klasse\git_serielleschnittstelleprojekte\library\mylib.c
+	<avr/io.h>
+
+1612902976 source:c:\users\mrsch\documents\schule\automation\4. klasse\git_serielleschnittstelleprojekte\library\usart.c
+	<avr/io.h>
+
+1612903055 source:c:\users\mrsch\documents\schule\automation\4. klasse\git_serielleschnittstelleprojekte\c_programme\seriellekommunikation_cseite\fuse.c
+	<avr/io.h>
+
