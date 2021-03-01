@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1614594273 source:c:\users\mrsch\documents\schule\automation\4. klasse\mikrocontroller\uebung_pwm\fuse.c
+	<avr/io.h>
+
+1614597385 source:c:\users\mrsch\documents\schule\automation\4. klasse\mikrocontroller\uebung_pwm\mylib.c
+	<avr/io.h>
+
+1612902976 source:c:\users\mrsch\documents\schule\automation\4. klasse\mikrocontroller\uebung_pwm\usart.c
+	<avr/io.h>
+
+1614596568 source:c:\users\mrsch\documents\schule\automation\4. klasse\mikrocontroller\uebung_pwm\main.c
+	<avr/io.h>
+	"myLib.h"
+	"USART_SerielleSchnittstelle.h"
+	<avr/interrupt.h>
+	<stdlib.h>
+
+1614594832 c:\users\mrsch\documents\schule\automation\4. klasse\mikrocontroller\uebung_pwm\mylib.h
+
+1612780207 c:\users\mrsch\documents\schule\automation\4. klasse\mikrocontroller\uebung_pwm\usart_serielleschnittstelle.h
+

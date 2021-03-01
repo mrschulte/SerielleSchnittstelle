@@ -194,5 +194,10 @@ namespace SerielleSchnittstelle_Projekte
                 chart1.Series["Messung1"].BorderWidth--;
             }
         }
+
+        private void btn_start_Click(object sender, EventArgs e)
+        {
+            serialPort1.WriteLine("start");
+        }
     }
 }
