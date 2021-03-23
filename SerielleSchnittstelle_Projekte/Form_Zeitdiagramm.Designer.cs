@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_start = new System.Windows.Forms.Button();
             this.btn_dashboard = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,7 +55,7 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.btn_start = new System.Windows.Forms.Button();
+            this.btn_stop = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -77,6 +78,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btn_stop);
             this.tabPage2.Controls.Add(this.btn_start);
             this.tabPage2.Controls.Add(this.btn_dashboard);
             this.tabPage2.Controls.Add(this.label2);
@@ -91,6 +93,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Einstellungen";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btn_start
+            // 
+            this.btn_start.Location = new System.Drawing.Point(17, 104);
+            this.btn_start.Name = "btn_start";
+            this.btn_start.Size = new System.Drawing.Size(166, 23);
+            this.btn_start.TabIndex = 1;
+            this.btn_start.Text = "Start";
+            this.btn_start.UseVisualStyleBackColor = true;
+            this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
             // 
             // btn_dashboard
             // 
@@ -273,20 +285,20 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Cursor = System.Windows.Forms.Cursors.Cross;
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            legend1.Title = "Diagramme";
-            this.chart1.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            legend2.Title = "Diagramme";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(3, 3);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Legend = "Legend1";
-            series1.Name = "Messung1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Legend = "Legend1";
+            series2.Name = "Messung1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(786, 418);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -296,15 +308,15 @@
             // 
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
-            // btn_start
+            // btn_stop
             // 
-            this.btn_start.Location = new System.Drawing.Point(17, 104);
-            this.btn_start.Name = "btn_start";
-            this.btn_start.Size = new System.Drawing.Size(166, 23);
-            this.btn_start.TabIndex = 1;
-            this.btn_start.Text = "Start";
-            this.btn_start.UseVisualStyleBackColor = true;
-            this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
+            this.btn_stop.Location = new System.Drawing.Point(17, 133);
+            this.btn_stop.Name = "btn_stop";
+            this.btn_stop.Size = new System.Drawing.Size(166, 23);
+            this.btn_stop.TabIndex = 6;
+            this.btn_stop.Text = "Stop";
+            this.btn_stop.UseVisualStyleBackColor = true;
+            this.btn_stop.Click += new System.EventHandler(this.btn_stop_Click);
             // 
             // Form_Zeitdiagramm
             // 
@@ -352,5 +364,6 @@
         private System.Windows.Forms.Button btn_strenghtm;
         private System.Windows.Forms.Button btn_strenghtp;
         private System.Windows.Forms.Button btn_start;
+        private System.Windows.Forms.Button btn_stop;
     }
 }

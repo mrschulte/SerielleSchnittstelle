@@ -1,19 +1,26 @@
 Archive member included because of file (symbol)
 
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
-                              obj\Debug\myLib.o (__mulsi3)
+                              obj\Debug\Library\myLib.o (__mulsi3)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
                               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o (exit)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
-                              obj\Debug\main.o (__do_copy_data)
+                              obj\Debug\C_Programme\MotorAnlaufkurve\main.o (__do_copy_data)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                              obj\Debug\main.o (__do_clear_bss)
+                              obj\Debug\C_Programme\MotorAnlaufkurve\main.o (__do_clear_bss)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcmp.o)
+                              obj\Debug\C_Programme\MotorAnlaufkurve\main.o (strcmp)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
-                              obj\Debug\main.o (itoa)
+                              obj\Debug\C_Programme\MotorAnlaufkurve\main.o (itoa)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
                               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o) (strrev)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
                               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o) (__udivmodhi4)
+
+Allocating common symbols
+Common symbol       size              file
+
+wert                0x2               obj\Debug\C_Programme\MotorAnlaufkurve\main.o
 
 Memory Configuration
 
@@ -30,10 +37,10 @@ Linker script and memory map
 
 Address of section .data set to 0x800100
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
-LOAD obj\Debug\fuse.o
-LOAD obj\Debug\main.o
-LOAD obj\Debug\myLib.o
-LOAD obj\Debug\USART.o
+LOAD obj\Debug\Library\myLib.o
+LOAD obj\Debug\Library\USART.o
+LOAD obj\Debug\C_Programme\MotorAnlaufkurve\fuse.o
+LOAD obj\Debug\C_Programme\MotorAnlaufkurve\main.o
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
 LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
@@ -128,7 +135,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x586
+.text           0x00000000      0x55e
  *(.vectors)
  .vectors       0x00000000       0x68 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
                 0x00000000                __vectors
@@ -209,48 +216,51 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x000000a2                __vector_10
                 0x000000a2                __vector_16
                 0x000000a2                __vector_20
- .text          0x000000a6        0x0 obj\Debug\fuse.o
- .text          0x000000a6      0x136 obj\Debug\main.o
-                0x0000011a                main
-                0x000000a6                __vector_18
- .text          0x000001dc      0x114 obj\Debug\myLib.o
-                0x00000258                ADC_Lesen
-                0x000001dc                myDelay
-                0x000002be                ADC_init
- .text          0x000002f0      0x1ca obj\Debug\USART.o
-                0x00000336                _putch
-                0x00000364                _puts
-                0x000003d8                _gets
-                0x000003ba                _getch
-                0x00000458                serialWrite
-                0x000002f0                init_usart
- .text          0x000004ba        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
- .text          0x000004ba        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text          0x000004ba        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text          0x000004ba        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text          0x000004ba        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
- .text          0x000004ba        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
- .text          0x000004ba        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x000004ba                . = ALIGN (0x2)
+ .text          0x000000a6       0x7c obj\Debug\Library\myLib.o
+                0x000000a6                myDelay
+ .text          0x00000122      0x1d6 obj\Debug\Library\USART.o
+                0x00000168                _putch
+                0x00000196                _puts
+                0x00000216                _gets
+                0x000001f8                _getch
+                0x00000296                serialWrite
+                0x00000122                init_usart
+ .text          0x000002f8        0x0 obj\Debug\C_Programme\MotorAnlaufkurve\fuse.o
+ .text          0x000002f8      0x188 obj\Debug\C_Programme\MotorAnlaufkurve\main.o
+                0x000003f6                Messung
+                0x000003a4                main
+                0x000002f8                __vector_18
+ .text          0x00000480        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .text          0x00000480        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x00000480        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000480        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text          0x00000480        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcmp.o)
+ .text          0x00000480        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+ .text          0x00000480        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+ .text          0x00000480        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x00000480                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x000004ba       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
-                0x000004ba                __mulsi3
- .text.libgcc   0x000004f8        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x000004f8        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x000004f8        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000480       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x00000480                __mulsi3
+ .text.libgcc   0x000004be        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x000004be        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x000004be        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
  .text.avr-libc
-                0x000004f8       0x42 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
-                0x000004f8                itoa
+                0x000004be       0x12 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcmp.o)
+                0x000004be                strcmp
  .text.avr-libc
-                0x0000053a       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
-                0x0000053a                strrev
- .text.libgcc   0x0000055a       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x0000055a                __udivmodhi4
-                0x00000582                . = ALIGN (0x2)
+                0x000004d0       0x42 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+                0x000004d0                itoa
+ .text.avr-libc
+                0x00000512       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+                0x00000512                strrev
+ .text.libgcc   0x00000532       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x00000532                __udivmodhi4
+                0x0000055a                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000582        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00000582                exit
-                0x00000582                _exit
+ .fini9         0x0000055a        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x0000055a                exit
+                0x0000055a                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -269,63 +279,70 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000582        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000055a        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000586                _etext = .
+                0x0000055e                _etext = .
 
-.data           0x00800100       0x12 load address 0x00000586
+.data           0x00800100       0x26 load address 0x0000055e
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
- .data          0x00800100        0x0 obj\Debug\fuse.o
- .data          0x00800100       0x11 obj\Debug\main.o
-                0x00800100                cmd
- .data          0x00800111        0x0 obj\Debug\myLib.o
- .data          0x00800111        0x0 obj\Debug\USART.o
- .data          0x00800111        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
- .data          0x00800111        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .data          0x00800111        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .data          0x00800111        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .data          0x00800111        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
- .data          0x00800111        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
- .data          0x00800111        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+ .data          0x00800100        0x0 obj\Debug\Library\myLib.o
+ .data          0x00800100        0x0 obj\Debug\Library\USART.o
+ .data          0x00800100        0x0 obj\Debug\C_Programme\MotorAnlaufkurve\fuse.o
+ .data          0x00800100       0x25 obj\Debug\C_Programme\MotorAnlaufkurve\main.o
+                0x0080011f                string
+                0x0080011a                stopvergleich
+                0x00800114                startvergleich
+                0x00800100                readarray
+ .data          0x00800125        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .data          0x00800125        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800125        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800125        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00800125        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcmp.o)
+ .data          0x00800125        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+ .data          0x00800125        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+ .data          0x00800125        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00800112                . = ALIGN (0x2)
- *fill*         0x00800111        0x1 00
-                0x00800112                _edata = .
-                0x00800112                PROVIDE (__data_end, .)
+                0x00800126                . = ALIGN (0x2)
+ *fill*         0x00800125        0x1 00
+                0x00800126                _edata = .
+                0x00800126                PROVIDE (__data_end, .)
 
-.bss            0x00800112        0x1
-                0x00800112                PROVIDE (__bss_start, .)
+.bss            0x00800126        0x3
+                0x00800126                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00800112        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
- .bss           0x00800112        0x0 obj\Debug\fuse.o
- .bss           0x00800112        0x1 obj\Debug\main.o
-                0x00800112                on
- .bss           0x00800113        0x0 obj\Debug\myLib.o
- .bss           0x00800113        0x0 obj\Debug\USART.o
- .bss           0x00800113        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
- .bss           0x00800113        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .bss           0x00800113        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .bss           0x00800113        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .bss           0x00800113        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
- .bss           0x00800113        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
- .bss           0x00800113        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+ .bss           0x00800126        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
+ .bss           0x00800126        0x0 obj\Debug\Library\myLib.o
+ .bss           0x00800126        0x0 obj\Debug\Library\USART.o
+ .bss           0x00800126        0x0 obj\Debug\C_Programme\MotorAnlaufkurve\fuse.o
+ .bss           0x00800126        0x1 obj\Debug\C_Programme\MotorAnlaufkurve\main.o
+                0x00800126                state
+ .bss           0x00800127        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .bss           0x00800127        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x00800127        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800127        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00800127        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcmp.o)
+ .bss           0x00800127        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+ .bss           0x00800127        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
+ .bss           0x00800127        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
  *(.bss*)
  *(COMMON)
-                0x00800113                PROVIDE (__bss_end, .)
-                0x00000586                __data_load_start = LOADADDR (.data)
-                0x00000598                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800127        0x2 obj\Debug\C_Programme\MotorAnlaufkurve\main.o
+                0x00800127                wert
+                0x00800129                PROVIDE (__bss_end, .)
+                0x0000055e                __data_load_start = LOADADDR (.data)
+                0x00000584                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800113        0x0
-                0x00800113                PROVIDE (__noinit_start, .)
+.noinit         0x00800129        0x0
+                0x00800129                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800113                PROVIDE (__noinit_end, .)
-                0x00800113                _end = .
-                0x00800113                PROVIDE (__heap_start, .)
+                0x00800129                PROVIDE (__noinit_end, .)
+                0x00800129                _end = .
+                0x00800129                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -333,7 +350,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 
 .fuse           0x00820000        0x3
  *(.fuse)
- .fuse          0x00820000        0x3 obj\Debug\fuse.o
+ .fuse          0x00820000        0x3 obj\Debug\C_Programme\MotorAnlaufkurve\fuse.o
                 0x00820000                __fuse
  *(.lfuse)
  *(.hfuse)
@@ -381,78 +398,75 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .debug_aranges  0x00000000       0x60
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x20 obj\Debug\main.o
+                0x00000000       0x20 obj\Debug\Library\myLib.o
  .debug_aranges
-                0x00000020       0x20 obj\Debug\myLib.o
+                0x00000020       0x20 obj\Debug\Library\USART.o
  .debug_aranges
-                0x00000040       0x20 obj\Debug\USART.o
+                0x00000040       0x20 obj\Debug\C_Programme\MotorAnlaufkurve\main.o
 
 .debug_pubnames
-                0x00000000       0xeb
+                0x00000000      0x11e
  *(.debug_pubnames)
  .debug_pubnames
-                0x00000000       0x1d obj\Debug\fuse.o
+                0x00000000       0x1e obj\Debug\Library\myLib.o
  .debug_pubnames
-                0x0000001d       0x3a obj\Debug\main.o
+                0x0000001e       0x5b obj\Debug\Library\USART.o
  .debug_pubnames
-                0x00000057       0x39 obj\Debug\myLib.o
+                0x00000079       0x1d obj\Debug\C_Programme\MotorAnlaufkurve\fuse.o
  .debug_pubnames
-                0x00000090       0x5b obj\Debug\USART.o
+                0x00000096       0x88 obj\Debug\C_Programme\MotorAnlaufkurve\main.o
 
-.debug_info     0x00000000      0x400
+.debug_info     0x00000000      0x3ff
  *(.debug_info)
- .debug_info    0x00000000       0xae obj\Debug\fuse.o
- .debug_info    0x000000ae      0x121 obj\Debug\main.o
- .debug_info    0x000001cf       0xd7 obj\Debug\myLib.o
- .debug_info    0x000002a6      0x15a obj\Debug\USART.o
+ .debug_info    0x00000000       0x8b obj\Debug\Library\myLib.o
+ .debug_info    0x0000008b      0x15a obj\Debug\Library\USART.o
+ .debug_info    0x000001e5       0xae obj\Debug\C_Programme\MotorAnlaufkurve\fuse.o
+ .debug_info    0x00000293      0x16c obj\Debug\C_Programme\MotorAnlaufkurve\main.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000      0x274
+.debug_abbrev   0x00000000      0x237
  *(.debug_abbrev)
- .debug_abbrev  0x00000000       0x73 obj\Debug\fuse.o
- .debug_abbrev  0x00000073       0xb1 obj\Debug\main.o
- .debug_abbrev  0x00000124       0x9a obj\Debug\myLib.o
- .debug_abbrev  0x000001be       0xb6 obj\Debug\USART.o
+ .debug_abbrev  0x00000000       0x5b obj\Debug\Library\myLib.o
+ .debug_abbrev  0x0000005b       0xb6 obj\Debug\Library\USART.o
+ .debug_abbrev  0x00000111       0x73 obj\Debug\C_Programme\MotorAnlaufkurve\fuse.o
+ .debug_abbrev  0x00000184       0xb3 obj\Debug\C_Programme\MotorAnlaufkurve\main.o
 
-.debug_line     0x00000000      0x448
+.debug_line     0x00000000      0x454
  *(.debug_line)
- .debug_line    0x00000000       0x83 obj\Debug\fuse.o
- .debug_line    0x00000083      0x131 obj\Debug\main.o
- .debug_line    0x000001b4      0x10a obj\Debug\myLib.o
- .debug_line    0x000002be      0x18a obj\Debug\USART.o
+ .debug_line    0x00000000       0xb0 obj\Debug\Library\myLib.o
+ .debug_line    0x000000b0      0x1a8 obj\Debug\Library\USART.o
+ .debug_line    0x00000258       0x83 obj\Debug\C_Programme\MotorAnlaufkurve\fuse.o
+ .debug_line    0x000002db      0x179 obj\Debug\C_Programme\MotorAnlaufkurve\main.o
 
-.debug_frame    0x00000000       0xe0
+.debug_frame    0x00000000       0xd0
  *(.debug_frame)
- .debug_frame   0x00000000       0x30 obj\Debug\main.o
- .debug_frame   0x00000030       0x40 obj\Debug\myLib.o
- .debug_frame   0x00000070       0x70 obj\Debug\USART.o
+ .debug_frame   0x00000000       0x20 obj\Debug\Library\myLib.o
+ .debug_frame   0x00000020       0x70 obj\Debug\Library\USART.o
+ .debug_frame   0x00000090       0x40 obj\Debug\C_Programme\MotorAnlaufkurve\main.o
 
-.debug_str      0x00000000      0x1ba
+.debug_str      0x00000000      0x1b5
  *(.debug_str)
- .debug_str     0x00000000       0xb4 obj\Debug\fuse.o
-                                 0xe8 (size before relaxing)
- .debug_str     0x000000b4       0xa1 obj\Debug\main.o
-                                0x119 (size before relaxing)
- .debug_str     0x00000155       0x2c obj\Debug\myLib.o
-                                 0xf8 (size before relaxing)
- .debug_str     0x00000181       0x39 obj\Debug\USART.o
-                                0x109 (size before relaxing)
+ .debug_str     0x00000000       0xda obj\Debug\Library\myLib.o
+                                0x10e (size before relaxing)
+ .debug_str     0x000000da       0x4f obj\Debug\Library\USART.o
+                                0x13b (size before relaxing)
+ .debug_str     0x00000129       0x25 obj\Debug\C_Programme\MotorAnlaufkurve\fuse.o
+                                0x10c (size before relaxing)
+ .debug_str     0x0000014e       0x67 obj\Debug\C_Programme\MotorAnlaufkurve\main.o
+                                0x15b (size before relaxing)
 
 .debug_loc
  *(.debug_loc)
 
 .debug_macinfo
  *(.debug_macinfo)
-OUTPUT(bin\Debug\Uebung_PWM.elf elf32-avr)
+OUTPUT(bin\Debug\MotorAnlaufkurve.elf elf32-avr)
 LOAD linker stubs
 
 Cross Reference Table
 
 Symbol                                            File
-ADC_Lesen                                         obj\Debug\myLib.o
-                                                  obj\Debug\main.o
-ADC_init                                          obj\Debug\myLib.o
-                                                  obj\Debug\main.o
+Messung                                           obj\Debug\C_Programme\MotorAnlaufkurve\main.o
 __bad_interrupt                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __bss_end                                         c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
 __bss_start                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
@@ -460,14 +474,14 @@ __data_end                                        c:/winavr-20100110/bin/../lib/
 __data_load_start                                 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
 __data_start                                      c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
 __do_clear_bss                                    c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                                                  obj\Debug\main.o
+                                                  obj\Debug\C_Programme\MotorAnlaufkurve\main.o
 __do_copy_data                                    c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
-                                                  obj\Debug\main.o
-__fuse                                            obj\Debug\fuse.o
+                                                  obj\Debug\C_Programme\MotorAnlaufkurve\main.o
+__fuse                                            obj\Debug\C_Programme\MotorAnlaufkurve\fuse.o
 __heap_end                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __init                                            c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __mulsi3                                          c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
-                                                  obj\Debug\myLib.o
+                                                  obj\Debug\Library\myLib.o
 __stack                                           c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __udivmodhi4                                      c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
                                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
@@ -480,7 +494,7 @@ __vector_14                                       c:/winavr-20100110/bin/../lib/
 __vector_15                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_16                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_17                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
-__vector_18                                       obj\Debug\main.o
+__vector_18                                       obj\Debug\C_Programme\MotorAnlaufkurve\main.o
                                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_19                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vector_2                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
@@ -500,24 +514,30 @@ __vector_9                                        c:/winavr-20100110/bin/../lib/
 __vector_default                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 __vectors                                         c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
 _exit                                             c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-_getch                                            obj\Debug\USART.o
-_gets                                             obj\Debug\USART.o
-                                                  obj\Debug\main.o
-_putch                                            obj\Debug\USART.o
-_puts                                             obj\Debug\USART.o
-cmd                                               obj\Debug\main.o
+_getch                                            obj\Debug\Library\USART.o
+_gets                                             obj\Debug\Library\USART.o
+                                                  obj\Debug\C_Programme\MotorAnlaufkurve\main.o
+_putch                                            obj\Debug\Library\USART.o
+_puts                                             obj\Debug\Library\USART.o
+                                                  obj\Debug\C_Programme\MotorAnlaufkurve\main.o
 exit                                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
                                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
-init_usart                                        obj\Debug\USART.o
-                                                  obj\Debug\main.o
+init_usart                                        obj\Debug\Library\USART.o
+                                                  obj\Debug\C_Programme\MotorAnlaufkurve\main.o
 itoa                                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
-                                                  obj\Debug\main.o
-main                                              obj\Debug\main.o
+                                                  obj\Debug\C_Programme\MotorAnlaufkurve\main.o
+main                                              obj\Debug\C_Programme\MotorAnlaufkurve\main.o
                                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
-myDelay                                           obj\Debug\myLib.o
-                                                  obj\Debug\main.o
-on                                                obj\Debug\main.o
-serialWrite                                       obj\Debug\USART.o
-                                                  obj\Debug\main.o
+myDelay                                           obj\Debug\Library\myLib.o
+                                                  obj\Debug\C_Programme\MotorAnlaufkurve\main.o
+readarray                                         obj\Debug\C_Programme\MotorAnlaufkurve\main.o
+serialWrite                                       obj\Debug\Library\USART.o
+startvergleich                                    obj\Debug\C_Programme\MotorAnlaufkurve\main.o
+state                                             obj\Debug\C_Programme\MotorAnlaufkurve\main.o
+stopvergleich                                     obj\Debug\C_Programme\MotorAnlaufkurve\main.o
+strcmp                                            c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strcmp.o)
+                                                  obj\Debug\C_Programme\MotorAnlaufkurve\main.o
+string                                            obj\Debug\C_Programme\MotorAnlaufkurve\main.o
 strrev                                            c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strrev.o)
                                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(itoa.o)
+wert                                              obj\Debug\C_Programme\MotorAnlaufkurve\main.o

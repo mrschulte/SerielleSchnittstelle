@@ -19,3 +19,12 @@
 
 1612780207 c:\users\mrsch\documents\schule\automation\4. klasse\mikrocontroller\uebung_pwm\usart_serielleschnittstelle.h
 
+1614594273 source:c:\users\mrsch\documents\schule\automation\4. klasse\git_serielleschnittstelleprojekte\c_programme\uebung_pwm\fuse.c
+	<avr/io.h>
+
+1614597385 source:c:\users\mrsch\documents\schule\automation\4. klasse\git_serielleschnittstelleprojekte\c_programme\uebung_pwm\mylib.c
+	<avr/io.h>
+
+1612902976 source:c:\users\mrsch\documents\schule\automation\4. klasse\git_serielleschnittstelleprojekte\c_programme\uebung_pwm\usart.c
+	<avr/io.h>
+

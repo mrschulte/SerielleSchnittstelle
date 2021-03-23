@@ -199,5 +199,10 @@ namespace SerielleSchnittstelle_Projekte
         {
             serialPort1.WriteLine("start");
         }
+
+        private void btn_stop_Click(object sender, EventArgs e)
+        {
+            serialPort1.WriteLine("stop");
+        }
     }
 }

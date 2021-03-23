@@ -23,8 +23,8 @@ void _puts(char st[])
     while(st[i])
         _putch(st[i++]);
 
-    //_putch(13);   // CR
-    //_putch(10);   // NL/LF
+    _putch(13);   // CR
+    _putch(10);   // NL/LF
 }
 
 unsigned char _getch(void)
