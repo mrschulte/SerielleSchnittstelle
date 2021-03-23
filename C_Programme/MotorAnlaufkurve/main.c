@@ -1,5 +1,6 @@
-/*
- */
+/* 
+*   Im C#-Programm sind buttons zum An- bzw Ausschalten. Dadurch schaltet der Mosfet an PD4 durch. Zusätzlich wird das Messen gestartet
+*/
 
 #include <avr/io.h>
 #include "../../Library/myLib.h"
