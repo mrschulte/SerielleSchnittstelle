@@ -1,4 +1,4 @@
-/* 
+/*
 *   Im C#-Programm sind buttons zum An- bzw Ausschalten. Dadurch schaltet der Mosfet an PD4 durch. Zusätzlich wird das Messen gestartet
 */
 
@@ -52,7 +52,7 @@ int main(void)
         if(state)
         {
             Messung();
-            myDelay(1000);
+            myDelay(100);
         }
 
     }

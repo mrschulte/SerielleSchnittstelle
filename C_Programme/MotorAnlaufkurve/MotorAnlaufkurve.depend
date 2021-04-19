@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1607338762 source:c:\users\mrsch\documents\schule\automation\4. klasse\git_serielleschnittstelleprojekte\library\mylib.c
+1607342362 source:c:\users\mrsch\documents\schule\automation\4. klasse\git_serielleschnittstelleprojekte\library\mylib.c
 	<avr/io.h>
 
-1616510681 source:c:\users\mrsch\documents\schule\automation\4. klasse\git_serielleschnittstelleprojekte\library\usart.c
+1616514281 source:c:\users\mrsch\documents\schule\automation\4. klasse\git_serielleschnittstelleprojekte\library\usart.c
 	<avr/io.h>
 
-1616508608 source:c:\users\mrsch\documents\schule\automation\4. klasse\git_serielleschnittstelleprojekte\c_programme\motoranlaufkurve\fuse.c
+1616512208 source:c:\users\mrsch\documents\schule\automation\4. klasse\git_serielleschnittstelleprojekte\c_programme\motoranlaufkurve\fuse.c
 	<avr/io.h>
 
 1616510603 source:c:\users\mrsch\documents\schule\automation\4. klasse\git_serielleschnittstelleprojekte\c_programme\motoranlaufkurve\main.c

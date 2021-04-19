@@ -100,8 +100,8 @@ namespace SerielleSchnittstelle_Projekte
             }
             string line = serialPort1.ReadLine();
             double spannung_raw = Convert.ToDouble(line);
-            float value_spannung =  (float) (spannung_raw * (5.00 / 1023.00));
-            updateCDiagramme(value_spannung);
+            float value_spannung =  (float) (spannung_raw * (4.75 / 1023.00));
+            //updateCDiagramme(value_spannung);
             updateChart(Convert.ToDouble(value_spannung));
             t += 1;
             txtBx_output.Text += (line + "\n");    
@@ -110,7 +110,7 @@ namespace SerielleSchnittstelle_Projekte
         //Empfangene Daten in CDiagramme eintragen
         private void updateCDiagramme(float value_y)
         {
-            array_points[zaehler].X = stopwatch.ElapsedMilliseconds / 1000;
+            array_points[zaehler].X = stopwatch.ElapsedMilliseconds ;
             array_points[zaehler].Y = value_y;
             array_points[0].X = zaehler;
             zaehler++;
@@ -123,7 +123,7 @@ namespace SerielleSchnittstelle_Projekte
         //Empfangene Daten in Chart eintragen
         private void updateChart(double value_y)
         {
-            chart1.Series["Messung1"].Points.AddXY(stopwatch.ElapsedMilliseconds / 1000, value_y);
+            chart1.Series["Messung1"].Points.AddXY(stopwatch.ElapsedMilliseconds, value_y * 842.1);
         }
 
         //Verfügbaren COM-Ports in der ComboBox auflisten
