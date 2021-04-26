@@ -77,6 +77,7 @@ namespace SerielleSchnittstelle_Projekte
         {
             string recieved = serialPort1.ReadLine();
             
+            //Spannungen unterscheiden Spannung 1 bekommt zusätzliches Zeichen vom MC
             if(recieved[recieved.Length-2] == '!')
             {
                 spannung1_raw = Convert.ToInt32(recieved.Substring(0, recieved.Length - 2));

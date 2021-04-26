@@ -28,7 +28,7 @@ int main(void)
     sei();
     TCCR0B |= 1;
     TCCR0A = 0x83; // 0b10000011
-    OCR0A = 227;
+    OCR0A = 250;
 
     uint16_t wert = 0;
     char str[] = "Halloo";

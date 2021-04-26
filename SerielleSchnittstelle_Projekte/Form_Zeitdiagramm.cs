@@ -30,6 +30,7 @@ namespace SerielleSchnittstelle_Projekte
             loadComboBox();
 
             USARTLesenPtr = new USARTLesen(serialPort_Read);
+
             chart1.ChartAreas[0].AxisX.Minimum = 0;
             chart1.ChartAreas[0].AxisY.Minimum = 0;
 
@@ -100,8 +101,8 @@ namespace SerielleSchnittstelle_Projekte
             }
             string line = serialPort1.ReadLine();
             double spannung_raw = Convert.ToDouble(line);
-            float value_spannung =  (float) (spannung_raw * (4.75 / 1023.00));
-            //updateCDiagramme(value_spannung);
+            float value_spannung =  (float) (spannung_raw * (4.77 / 1023.00));
+            //updateCDiagramme(value_spannung);            
             updateChart(Convert.ToDouble(value_spannung));
             t += 1;
             txtBx_output.Text += (line + "\n");    
@@ -110,20 +111,20 @@ namespace SerielleSchnittstelle_Projekte
         //Empfangene Daten in CDiagramme eintragen
         private void updateCDiagramme(float value_y)
         {
-            array_points[zaehler].X = stopwatch.ElapsedMilliseconds ;
+            array_points[zaehler].X = stopwatch.ElapsedMilliseconds;
             array_points[zaehler].Y = value_y;
             array_points[0].X = zaehler;
             zaehler++;
             if (array_points[0].X > 1)
             {
                 diagramm.Zeitdiagrammzeichnen(array_points, true);
-            }
+            }            
         }
 
         //Empfangene Daten in Chart eintragen
         private void updateChart(double value_y)
         {
-            chart1.Series["Messung1"].Points.AddXY(stopwatch.ElapsedMilliseconds, value_y * 842.1);
+            chart1.Series["Messung1"].Points.AddXY(stopwatch.ElapsedMilliseconds/1000, value_y);
         }
 
         //Verfügbaren COM-Ports in der ComboBox auflisten
@@ -134,6 +135,7 @@ namespace SerielleSchnittstelle_Projekte
             comboBox1.Items.AddRange(portnames);
         }
 
+        //Comboboxupdate
         private void comboBox1_DropDown(object sender, EventArgs e)
         {
             loadComboBox();
@@ -144,6 +146,7 @@ namespace SerielleSchnittstelle_Projekte
             this.Invoke(USARTLesenPtr);
         }
 
+        //Zurück zur Auswahl der Programme
         private void btn_dashboard_Click(object sender, EventArgs e)
         {
             if (!serialPort1.IsOpen)
@@ -159,6 +162,7 @@ namespace SerielleSchnittstelle_Projekte
             }
         }
 
+        //Farbauswahl
         private void btn_color_Click(object sender, EventArgs e)
         {
             DialogResult result = colorDialog1.ShowDialog();
@@ -170,6 +174,7 @@ namespace SerielleSchnittstelle_Projekte
 
         }
 
+        //Mausposition in Diagrammwert umwandeln und anzeigen
         private void chart1_MouseMove(object sender, MouseEventArgs e)
         {
             try
@@ -182,11 +187,13 @@ namespace SerielleSchnittstelle_Projekte
             catch { }
         }
 
+        //Dickere Linie
         private void btn_strenghtp_Click(object sender, EventArgs e)
         {
             chart1.Series["Messung1"].BorderWidth++;
         }
 
+        //Dünnere Linie
         private void btn_strenghtm_Click(object sender, EventArgs e)
         {
             if(chart1.Series["Messung1"].BorderWidth != 1)
@@ -195,11 +202,13 @@ namespace SerielleSchnittstelle_Projekte
             }
         }
 
+        //Sendet Start-Befehl an Mikrocontroller
         private void btn_start_Click(object sender, EventArgs e)
         {
             serialPort1.WriteLine("start");
         }
 
+        //Sendet Stop-Befehl an Mikrocontroller
         private void btn_stop_Click(object sender, EventArgs e)
         {
             serialPort1.WriteLine("stop");

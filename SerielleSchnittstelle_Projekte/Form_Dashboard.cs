@@ -17,24 +17,25 @@ namespace SerielleSchnittstelle_Projekte
             InitializeComponent();
         }
 
+        //Zeitdiagrammprojekt starten
         private void btn_zeitdiagramm_Click(object sender, EventArgs e)
         {
-            //Zeitdiagrammprojekt starten
             Form_Zeitdiagramm zeitdiagramm = new Form_Zeitdiagramm();
             this.Hide();
             zeitdiagramm.ShowDialog();
             this.Close();
         }
 
+        //Voltmeterprojekt starten
         private void btn_voltmeter_Click(object sender, EventArgs e)
         {
-            //Voltmeterprojekt starten
             Form_Voltmeter voltmeter = new Form_Voltmeter();
             this.Hide();
             voltmeter.ShowDialog();
             this.Close();
         }
 
+        //SerielleKommunikationprojekt starten
         private void btn_seriellekommunikation_Click(object sender, EventArgs e)
         {
             this.Hide();
