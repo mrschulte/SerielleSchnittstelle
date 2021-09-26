@@ -106,7 +106,7 @@ namespace SerielleSchnittstelle_Projekte
             updateChart(Convert.ToDouble(value_spannung));
             t += 1;
             txtBx_output.Text += (line + "\n");
-            System.Diagnostics.Debug.WriteLine("Millisekunden: " + stopwatch.ElapsedMilliseconds.ToString());
+            System.Diagnostics.Debug.WriteLine("Milliseconds" + stopwatch.ElapsedMilliseconds.ToString());
         }
 
         //Empfangene Daten in CDiagramme eintragen
