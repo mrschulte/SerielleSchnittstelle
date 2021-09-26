@@ -76,7 +76,9 @@ namespace SerielleSchnittstelle_Projekte
         private void serialRead()
         {
             string recieved = serialPort1.ReadLine();
-            
+
+            txtBx_data.Text += (recieved + "\r\n");
+            /*
             //Spannungen unterscheiden Spannung 1 bekommt zusätzliches Zeichen vom MC
             if(recieved[recieved.Length-2] == '!')
             {
@@ -93,7 +95,7 @@ namespace SerielleSchnittstelle_Projekte
             txtBx_data.ScrollToCaret();
 
             value_voltage1.Text = ((4.77 / 1023) * spannung1_raw).ToString("0.00");
-            value_voltage2.Text = ((4.77 / 1023) * spannung2_raw).ToString("0.00");
+            value_voltage2.Text = ((4.77 / 1023) * spannung2_raw).ToString("0.00");*/
         }
 
         private void checkBox_console_CheckedChanged(object sender, EventArgs e)

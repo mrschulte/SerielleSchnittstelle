@@ -102,16 +102,17 @@ namespace SerielleSchnittstelle_Projekte
             string line = serialPort1.ReadLine();
             double spannung_raw = Convert.ToDouble(line);
             float value_spannung =  (float) (spannung_raw * (4.77 / 1023.00));
-            //updateCDiagramme(value_spannung);            
+            updateCDiagramme(value_spannung);            
             updateChart(Convert.ToDouble(value_spannung));
             t += 1;
-            txtBx_output.Text += (line + "\n");    
+            txtBx_output.Text += (line + "\n");
+            System.Diagnostics.Debug.WriteLine("Millisekunden: " + stopwatch.ElapsedMilliseconds.ToString());
         }
 
         //Empfangene Daten in CDiagramme eintragen
         private void updateCDiagramme(float value_y)
         {
-            array_points[zaehler].X = stopwatch.ElapsedMilliseconds;
+            array_points[zaehler].X = stopwatch.ElapsedMilliseconds/1000;
             array_points[zaehler].Y = value_y;
             array_points[0].X = zaehler;
             zaehler++;
