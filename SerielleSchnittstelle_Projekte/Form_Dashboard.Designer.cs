@@ -34,6 +34,8 @@
             this.btn_voltmeter = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_seriellekommunikation = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btn_ampel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_zeitdiagramm
@@ -111,12 +113,39 @@
             this.btn_seriellekommunikation.UseVisualStyleBackColor = false;
             this.btn_seriellekommunikation.Click += new System.EventHandler(this.btn_seriellekommunikation_Click);
             // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.label4.Location = new System.Drawing.Point(604, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(130, 35);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Ampel";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_ampel
+            // 
+            this.btn_ampel.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_ampel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ampel.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ampel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_ampel.Location = new System.Drawing.Point(604, 86);
+            this.btn_ampel.Name = "btn_ampel";
+            this.btn_ampel.Size = new System.Drawing.Size(130, 30);
+            this.btn_ampel.TabIndex = 6;
+            this.btn_ampel.Text = "Programm starten";
+            this.btn_ampel.UseVisualStyleBackColor = false;
+            this.btn_ampel.Click += new System.EventHandler(this.btn_ampel_Click);
+            // 
             // Form_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btn_ampel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_seriellekommunikation);
             this.Controls.Add(this.label2);
@@ -139,6 +168,8 @@
         private System.Windows.Forms.Button btn_voltmeter;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_seriellekommunikation;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btn_ampel;
     }
 }
 

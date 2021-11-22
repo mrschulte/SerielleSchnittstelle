@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Diagramme;
+using Parametrierung;
 
 namespace SerielleSchnittstelle_Projekte
 {
@@ -15,6 +16,7 @@ namespace SerielleSchnittstelle_Projekte
     {
         public delegate void USARTLesen();
         public USARTLesen USARTLesenPtr;
+        private Class_Interface val_interface;
 
         private System.Diagnostics.Stopwatch stopwatch;
 
@@ -30,6 +32,7 @@ namespace SerielleSchnittstelle_Projekte
             loadComboBox();
 
             USARTLesenPtr = new USARTLesen(serialPort_Read);
+            val_interface = new Class_Interface();
 
             chart1.ChartAreas[0].AxisX.Minimum = 0;
             chart1.ChartAreas[0].AxisY.Minimum = 0;
@@ -47,6 +50,7 @@ namespace SerielleSchnittstelle_Projekte
         //Verbindung zu seriellen Port aufbauen / unterbrechen
         private void btn_connect_Click(object sender, EventArgs e)
         {
+            
             if(!serialPort1.IsOpen)
             {
                 if(comboBox1.SelectedItem != null)
@@ -102,7 +106,7 @@ namespace SerielleSchnittstelle_Projekte
             string line = serialPort1.ReadLine();
             double spannung_raw = Convert.ToDouble(line);
             float value_spannung =  (float) (spannung_raw * (4.77 / 1023.00));
-            updateCDiagramme(value_spannung);            
+            //updateCDiagramme(value_spannung);            
             updateChart(Convert.ToDouble(value_spannung));
             t += 1;
             txtBx_output.Text += (line + "\n");
@@ -125,7 +129,7 @@ namespace SerielleSchnittstelle_Projekte
         //Empfangene Daten in Chart eintragen
         private void updateChart(double value_y)
         {
-            chart1.Series["Messung1"].Points.AddXY(stopwatch.ElapsedMilliseconds/1000, value_y);
+            chart1.Series["Messung1"].Points.AddXY((float) stopwatch.ElapsedMilliseconds/1000, value_y);
         }
 
         //Verfügbaren COM-Ports in der ComboBox auflisten
@@ -213,6 +217,16 @@ namespace SerielleSchnittstelle_Projekte
         private void btn_stop_Click(object sender, EventArgs e)
         {
             serialPort1.WriteLine("stop");
+        }
+
+        private void btn_export_Click(object sender, EventArgs e)
+        {
+            DialogResult result = folderBrowserDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                val_interface.saveValues(chart1.Series[0].Points, folderBrowserDialog1.SelectedPath, "values.txt");
+            }
         }
     }
 }

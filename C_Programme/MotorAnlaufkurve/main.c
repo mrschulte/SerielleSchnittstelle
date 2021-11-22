@@ -52,7 +52,7 @@ int main(void)
         if(state)
         {
             Messung();
-            myDelay(100);
+            myDelay(500);
         }
 
     }

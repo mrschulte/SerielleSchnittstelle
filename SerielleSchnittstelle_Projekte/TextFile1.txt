@@ -1,0 +1,3 @@
+﻿TODO
+
+- beim Schließen Portabfrage machen -> evt port schließen

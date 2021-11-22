@@ -48,6 +48,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CDiagramme.cs" />
+    <Compile Include="Class_Interface.cs" />
+    <Compile Include="Form_Ampel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Ampel.Designer.cs">
+      <DependentUpon>Form_Ampel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Kommunikation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +81,9 @@
     <Compile Include="Form_Zeitdiagramm.Designer.cs">
       <DependentUpon>Form_Zeitdiagramm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form_Ampel.resx">
+      <DependentUpon>Form_Ampel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Kommunikation.resx">
       <DependentUpon>Form_Kommunikation.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,6 +117,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

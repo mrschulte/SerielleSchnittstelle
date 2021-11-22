@@ -42,5 +42,12 @@ namespace SerielleSchnittstelle_Projekte
             new Form_Kommunikation().ShowDialog();
             this.Close();
         }
+
+        private void btn_ampel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Form_Ampel().ShowDialog();
+            this.Close();
+        }
     }
 }
