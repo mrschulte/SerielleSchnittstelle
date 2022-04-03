@@ -105,6 +105,7 @@ namespace SerielleSchnittstelle_Projekte
         private void serialPort_Read()
         {
             string line = serialPort1.ReadLine();
+            
 
             if(line.Contains("#") && line.Contains("*") && line.Contains("!"))
             {
@@ -133,13 +134,14 @@ namespace SerielleSchnittstelle_Projekte
             {
                 try
                 {
-                    /*System.Diagnostics.Debug.WriteLine("Line: " + line);
+                    System.Diagnostics.Debug.WriteLine("Line: " + line);
                     System.Diagnostics.Debug.WriteLine("Länge: " + line.Length);
-                    System.Diagnostics.Debug.WriteLine("Next");*/
-                    Double rpm = (Double) Convert.ToInt32(line);
+                    System.Diagnostics.Debug.WriteLine("Next");
+                    
                     //System.Diagnostics.Debug.WriteLine(rpm.ToString());
                     if (time.IsRunning && line.Length > 0)
                     {
+                        Double rpm = (Double)Convert.ToInt32(line);
                         chart1.Series[comboBox_regler.SelectedItem.ToString()].Points.AddXY(time.ElapsedMilliseconds / 1000, rpm);
                     }
                     
