@@ -30,9 +30,9 @@ namespace SerielleSchnittstelle_Projekte
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btn_dashboard = new System.Windows.Forms.Button();
             this.comboBox_regler = new System.Windows.Forms.ComboBox();
@@ -53,6 +53,9 @@ namespace SerielleSchnittstelle_Projekte
             this.btn_connect = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtBx_sollwert = new System.Windows.Forms.TextBox();
+            this.btn_settings = new System.Windows.Forms.Button();
+            this.btn_reset = new System.Windows.Forms.Button();
+            this.btn_resetall = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,24 +64,24 @@ namespace SerielleSchnittstelle_Projekte
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(12, 12);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(554, 472);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
+            this.chart1.Size = new System.Drawing.Size(556, 504);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
             // btn_dashboard
             // 
             this.btn_dashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_dashboard.Location = new System.Drawing.Point(721, 12);
+            this.btn_dashboard.Location = new System.Drawing.Point(723, 12);
             this.btn_dashboard.Name = "btn_dashboard";
             this.btn_dashboard.Size = new System.Drawing.Size(75, 23);
             this.btn_dashboard.TabIndex = 1;
@@ -90,7 +93,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.comboBox_regler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox_regler.FormattingEnabled = true;
-            this.comboBox_regler.Location = new System.Drawing.Point(675, 137);
+            this.comboBox_regler.Location = new System.Drawing.Point(677, 137);
             this.comboBox_regler.Name = "comboBox_regler";
             this.comboBox_regler.Size = new System.Drawing.Size(121, 21);
             this.comboBox_regler.TabIndex = 2;
@@ -100,7 +103,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(758, 121);
+            this.label1.Location = new System.Drawing.Point(760, 121);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 3;
@@ -109,7 +112,7 @@ namespace SerielleSchnittstelle_Projekte
             // btn_add
             // 
             this.btn_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_add.Location = new System.Drawing.Point(675, 164);
+            this.btn_add.Location = new System.Drawing.Point(677, 164);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(27, 23);
             this.btn_add.TabIndex = 4;
@@ -120,7 +123,7 @@ namespace SerielleSchnittstelle_Projekte
             // btn_remove
             // 
             this.btn_remove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_remove.Location = new System.Drawing.Point(708, 164);
+            this.btn_remove.Location = new System.Drawing.Point(710, 164);
             this.btn_remove.Name = "btn_remove";
             this.btn_remove.Size = new System.Drawing.Size(27, 23);
             this.btn_remove.TabIndex = 5;
@@ -132,7 +135,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.txtBx_Kp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBx_Kp.Location = new System.Drawing.Point(675, 206);
+            this.txtBx_Kp.Location = new System.Drawing.Point(677, 238);
             this.txtBx_Kp.Name = "txtBx_Kp";
             this.txtBx_Kp.Size = new System.Drawing.Size(121, 20);
             this.txtBx_Kp.TabIndex = 6;
@@ -141,7 +144,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.txtBx_Kr.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBx_Kr.Location = new System.Drawing.Point(675, 256);
+            this.txtBx_Kr.Location = new System.Drawing.Point(677, 288);
             this.txtBx_Kr.Name = "txtBx_Kr";
             this.txtBx_Kr.Size = new System.Drawing.Size(121, 20);
             this.txtBx_Kr.TabIndex = 7;
@@ -150,7 +153,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.txtBx_Tn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBx_Tn.Location = new System.Drawing.Point(675, 300);
+            this.txtBx_Tn.Location = new System.Drawing.Point(677, 332);
             this.txtBx_Tn.Name = "txtBx_Tn";
             this.txtBx_Tn.Size = new System.Drawing.Size(121, 20);
             this.txtBx_Tn.TabIndex = 8;
@@ -160,7 +163,7 @@ namespace SerielleSchnittstelle_Projekte
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(776, 190);
+            this.label2.Location = new System.Drawing.Point(778, 222);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(20, 13);
             this.label2.TabIndex = 9;
@@ -171,7 +174,7 @@ namespace SerielleSchnittstelle_Projekte
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(776, 240);
+            this.label3.Location = new System.Drawing.Point(778, 272);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(17, 13);
             this.label3.TabIndex = 10;
@@ -182,7 +185,7 @@ namespace SerielleSchnittstelle_Projekte
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(773, 284);
+            this.label4.Location = new System.Drawing.Point(775, 316);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(20, 13);
             this.label4.TabIndex = 11;
@@ -191,7 +194,7 @@ namespace SerielleSchnittstelle_Projekte
             // btn_update
             // 
             this.btn_update.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_update.Location = new System.Drawing.Point(678, 392);
+            this.btn_update.Location = new System.Drawing.Point(680, 424);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(118, 43);
             this.btn_update.TabIndex = 12;
@@ -202,7 +205,7 @@ namespace SerielleSchnittstelle_Projekte
             // btn_cmd
             // 
             this.btn_cmd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_cmd.Location = new System.Drawing.Point(678, 441);
+            this.btn_cmd.Location = new System.Drawing.Point(680, 473);
             this.btn_cmd.Name = "btn_cmd";
             this.btn_cmd.Size = new System.Drawing.Size(118, 43);
             this.btn_cmd.TabIndex = 13;
@@ -218,7 +221,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(743, 47);
+            this.label5.Location = new System.Drawing.Point(745, 47);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 15;
@@ -228,7 +231,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.comboBox_ports.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox_ports.FormattingEnabled = true;
-            this.comboBox_ports.Location = new System.Drawing.Point(675, 63);
+            this.comboBox_ports.Location = new System.Drawing.Point(677, 63);
             this.comboBox_ports.Name = "comboBox_ports";
             this.comboBox_ports.Size = new System.Drawing.Size(121, 21);
             this.comboBox_ports.TabIndex = 14;
@@ -237,7 +240,7 @@ namespace SerielleSchnittstelle_Projekte
             // btn_connect
             // 
             this.btn_connect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_connect.Location = new System.Drawing.Point(675, 87);
+            this.btn_connect.Location = new System.Drawing.Point(677, 87);
             this.btn_connect.Name = "btn_connect";
             this.btn_connect.Size = new System.Drawing.Size(121, 22);
             this.btn_connect.TabIndex = 16;
@@ -250,7 +253,7 @@ namespace SerielleSchnittstelle_Projekte
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(749, 350);
+            this.label6.Location = new System.Drawing.Point(751, 382);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 18;
@@ -260,16 +263,52 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.txtBx_sollwert.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBx_sollwert.Location = new System.Drawing.Point(675, 366);
+            this.txtBx_sollwert.Location = new System.Drawing.Point(677, 398);
             this.txtBx_sollwert.Name = "txtBx_sollwert";
             this.txtBx_sollwert.Size = new System.Drawing.Size(121, 20);
             this.txtBx_sollwert.TabIndex = 17;
+            // 
+            // btn_settings
+            // 
+            this.btn_settings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_settings.Location = new System.Drawing.Point(748, 164);
+            this.btn_settings.Name = "btn_settings";
+            this.btn_settings.Size = new System.Drawing.Size(47, 23);
+            this.btn_settings.TabIndex = 19;
+            this.btn_settings.Text = "Einst.";
+            this.btn_settings.UseVisualStyleBackColor = true;
+            this.btn_settings.Click += new System.EventHandler(this.btn_settings_Click);
+            // 
+            // btn_reset
+            // 
+            this.btn_reset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_reset.Location = new System.Drawing.Point(677, 193);
+            this.btn_reset.Name = "btn_reset";
+            this.btn_reset.Size = new System.Drawing.Size(60, 23);
+            this.btn_reset.TabIndex = 20;
+            this.btn_reset.Text = "Reset";
+            this.btn_reset.UseVisualStyleBackColor = true;
+            this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
+            // 
+            // btn_resetall
+            // 
+            this.btn_resetall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_resetall.Location = new System.Drawing.Point(738, 193);
+            this.btn_resetall.Name = "btn_resetall";
+            this.btn_resetall.Size = new System.Drawing.Size(60, 23);
+            this.btn_resetall.TabIndex = 21;
+            this.btn_resetall.Text = "Reset all";
+            this.btn_resetall.UseVisualStyleBackColor = true;
+            this.btn_resetall.Click += new System.EventHandler(this.btn_resetall_Click);
             // 
             // DigitalerRegler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 496);
+            this.ClientSize = new System.Drawing.Size(810, 528);
+            this.Controls.Add(this.btn_resetall);
+            this.Controls.Add(this.btn_reset);
+            this.Controls.Add(this.btn_settings);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtBx_sollwert);
             this.Controls.Add(this.btn_connect);
@@ -289,7 +328,7 @@ namespace SerielleSchnittstelle_Projekte
             this.Controls.Add(this.comboBox_regler);
             this.Controls.Add(this.btn_dashboard);
             this.Controls.Add(this.chart1);
-            this.MinimumSize = new System.Drawing.Size(824, 535);
+            this.MinimumSize = new System.Drawing.Size(826, 567);
             this.Name = "DigitalerRegler";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DigitalerRegler";
@@ -321,5 +360,8 @@ namespace SerielleSchnittstelle_Projekte
         private System.Windows.Forms.Button btn_connect;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtBx_sollwert;
+        private System.Windows.Forms.Button btn_settings;
+        private System.Windows.Forms.Button btn_reset;
+        private System.Windows.Forms.Button btn_resetall;
     }
 }
