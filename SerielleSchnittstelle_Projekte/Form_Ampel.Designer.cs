@@ -37,6 +37,10 @@ namespace SerielleSchnittstelle_Projekte
             this.pb_2ge = new System.Windows.Forms.PictureBox();
             this.pb_2r = new System.Windows.Forms.PictureBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_1r)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_1ge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_1gr)).BeginInit();
@@ -95,14 +99,55 @@ namespace SerielleSchnittstelle_Projekte
             // 
             // serialPort1
             // 
-            this.serialPort1.PortName = "COM10";
+            this.serialPort1.PortName = "COM3";
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(531, 239);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(531, 316);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 7;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(531, 342);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(632, 157);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 30);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form_Ampel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pb_2gr);
             this.Controls.Add(this.pb_2ge);
             this.Controls.Add(this.pb_2r);
@@ -118,6 +163,7 @@ namespace SerielleSchnittstelle_Projekte
             ((System.ComponentModel.ISupportInitialize)(this.pb_2ge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_2r)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -130,5 +176,9 @@ namespace SerielleSchnittstelle_Projekte
         private System.Windows.Forms.PictureBox pb_2ge;
         private System.Windows.Forms.PictureBox pb_2r;
         private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

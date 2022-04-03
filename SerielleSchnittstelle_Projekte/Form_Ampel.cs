@@ -22,6 +22,8 @@ namespace SerielleSchnittstelle_Projekte
         {
             string line = serialPort1.ReadLine();
             System.Diagnostics.Debug.WriteLine(line);
+            /*
+            System.Diagnostics.Debug.WriteLine(line);
 
             int a1 = Convert.ToInt32(line[0].ToString());
             int a2 = Convert.ToInt32(line[2].ToString());
@@ -68,7 +70,23 @@ namespace SerielleSchnittstelle_Projekte
                 pb_2r.BackColor = Color.Gray;
                 pb_2ge.BackColor = Color.Gray;
                 pb_2gr.BackColor = Color.Green;
-            }
+            }*/
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            serialPort1.WriteLine("getvalues");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            serialPort1.WriteLine(textBox1.Text);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            serialPort1.DiscardOutBuffer();
+            serialPort1.DiscardInBuffer();
         }
     }
 }

@@ -49,6 +49,12 @@
   <ItemGroup>
     <Compile Include="CDiagramme.cs" />
     <Compile Include="Class_Interface.cs" />
+    <Compile Include="DigitalerRegler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DigitalerRegler.Designer.cs">
+      <DependentUpon>DigitalerRegler.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Ampel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,12 @@
     </Compile>
     <Compile Include="Form_Kommunikation.Designer.cs">
       <DependentUpon>Form_Kommunikation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_NewRegler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_NewRegler.Designer.cs">
+      <DependentUpon>Form_NewRegler.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Voltmeter.cs">
       <SubType>Form</SubType>
@@ -73,6 +85,7 @@
     <Compile Include="Form_Dashboard.Designer.cs">
       <DependentUpon>Form_Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="PI_Regler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Form_Zeitdiagramm.cs">
@@ -81,11 +94,19 @@
     <Compile Include="Form_Zeitdiagramm.Designer.cs">
       <DependentUpon>Form_Zeitdiagramm.cs</DependentUpon>
     </Compile>
+    <Compile Include="P_Regler.cs" />
+    <Compile Include="Regler.cs" />
+    <EmbeddedResource Include="DigitalerRegler.resx">
+      <DependentUpon>DigitalerRegler.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Ampel.resx">
       <DependentUpon>Form_Ampel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Kommunikation.resx">
       <DependentUpon>Form_Kommunikation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_NewRegler.resx">
+      <DependentUpon>Form_NewRegler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Voltmeter.resx">
       <DependentUpon>Form_Voltmeter.cs</DependentUpon>

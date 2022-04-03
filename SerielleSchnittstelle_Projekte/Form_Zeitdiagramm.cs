@@ -24,6 +24,7 @@ namespace SerielleSchnittstelle_Projekte
         private PointF[] array_points;
         int t = 0;
         int zaehler = 1;
+        float alterwert = 0;
         
 
         public Form_Zeitdiagramm()
@@ -99,18 +100,32 @@ namespace SerielleSchnittstelle_Projekte
         //Daten von serieller Schnittstelle auslesen und verarbeiten
         private void serialPort_Read()
         {
+
             if(!stopwatch.IsRunning)
             {
                 stopwatch.Start();
             }
+            //System.Diagnostics.Debug.WriteLine("drin");
             string line = serialPort1.ReadLine();
-            double spannung_raw = Convert.ToDouble(line);
+            //System.Diagnostics.Debug.WriteLine(line);
+            float spannung_raw = (float) Convert.ToDouble(line);
+
+            if(spannung_raw >= 0)
+            {
+                spannung_raw = (float)((0.8 * alterwert) + (0.2 * (float)spannung_raw));
+            }
+            
+
+
             float value_spannung =  (float) (spannung_raw * (4.77 / 1023.00));
             //updateCDiagramme(value_spannung);            
-            updateChart(Convert.ToDouble(value_spannung));
+            updateChart(Convert.ToDouble(spannung_raw));
+            alterwert = spannung_raw;
+
+
             t += 1;
             txtBx_output.Text += (line + "\n");
-            System.Diagnostics.Debug.WriteLine("Milliseconds" + stopwatch.ElapsedMilliseconds.ToString());
+            //System.Diagnostics.Debug.WriteLine("Milliseconds" + stopwatch.ElapsedMilliseconds.ToString());
         }
 
         //Empfangene Daten in CDiagramme eintragen
