@@ -73,6 +73,10 @@ namespace SerielleSchnittstelle_Projekte
                         serialPort1.Open();
                         btn_connect.Text = "Verbindung trennen";
                         getProgrammedRegler();
+                        foreach(Control c in this.Controls)
+                        {
+                            c.Enabled = true;
+                        }
                     }catch(Exception ex)
                     {
                         MessageBox.Show(ex.Message);
@@ -84,7 +88,15 @@ namespace SerielleSchnittstelle_Projekte
                     {
                         serialPort1.Close();
                         btn_connect.Text = "Verbinden";
-                    }catch(Exception ex)
+                        foreach (Control c in this.Controls)
+                        {
+                            if(c != sender && c != comboBox_ports && c != btn_dashboard)
+                            {
+                                c.Enabled = false;
+                            }
+                        }
+                    }
+                    catch(Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
@@ -124,7 +136,7 @@ namespace SerielleSchnittstelle_Projekte
 
                 reglerList.Clear();
                 reglerList.Add(new P_Regler(kp, sollwert, "P-Beispiel", Color.Orange));
-                reglerList.Add(new PI_Regler(kr, tn, sollwert, "PI-Beispiel", Color.Green));
+                reglerList.Add(new PI_Regler(kr, tn, sollwert, "PI-Beispiel", Color.GreenYellow));
                 updateReglerList(0);
                 updateValues(reglerList[0]);
                 updateChartSeries();
@@ -146,7 +158,7 @@ namespace SerielleSchnittstelle_Projekte
                     }
                     
                 }
-                catch (Exception ex) { MessageBox.Show("rr"); }
+                catch (Exception ex) { MessageBox.Show("Error"); }
             }
         }
 
@@ -470,6 +482,139 @@ namespace SerielleSchnittstelle_Projekte
                     time.Reset();
                 }
             }
+        }
+
+        private void saveRegler()
+        {
+            if(!System.IO.File.Exists("regler"))
+            {
+                System.IO.StreamWriter writer = new System.IO.StreamWriter("regler");
+
+                foreach (Regler r in reglerList)
+                {
+                    writer.WriteLine(constructString(r));
+                }
+                writer.Close();
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Es gibt bereits eine gespeicherte Liste. Überschreiben?", "Liste überschreiben?", MessageBoxButtons.YesNo);
+                if(result == DialogResult.Yes)
+                {
+                    System.IO.StreamWriter writer = new System.IO.StreamWriter("regler");
+
+                    foreach (Regler r in reglerList)
+                    {
+                        writer.WriteLine(constructString(r));
+                    }
+                    writer.Close();
+                }
+            }
+            
+        }
+
+        private string constructString(Regler r)
+        {
+            string reglerParameters = "";
+            if (r.GetType().Name == "P_Regler")
+            {
+                P_Regler pr = (P_Regler)r;
+                reglerParameters = "[1;" + pr.displayName + ";" + pr.displayColor.ToArgb() + ";" + pr.Kp + ";" + pr.sollwert + "]";
+            }
+            else
+            {
+                PI_Regler pir = (PI_Regler)r;
+                reglerParameters = "[2;" + pir.displayName + ";" + pir.displayColor.ToArgb() + ";" + pir.Kr + ";" + pir.Tn + ";" + pir.sollwert + "]";
+            }
+            return reglerParameters;
+        }
+
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            saveRegler();
+        }
+
+        private void importRegler()
+        {
+            System.IO.StreamReader reader = new System.IO.StreamReader("regler");
+            string line = null;
+            int count = 0;
+            while(true)
+            {
+                line = reader.ReadLine();
+                if(line == null)
+                {
+                    break;
+                }
+                else
+                {
+                    if(count == 0)
+                    {
+                        reglerList.Clear();
+                    }
+                    count++;
+                    Regler r = constructRegler(line);
+                    reglerList.Add(r);
+                }
+            }
+            updateReglerList(0);
+            reader.Close();
+        }
+
+        private Regler constructRegler(string line)
+        {
+            int kp = 0;
+            int kr = 0;
+            int tn = 0;
+            int sollwert = 0;
+            string displayname = "";
+            Color displayColor;
+            int[] indexlist = new int[5];
+            
+            if(line[1].ToString() == "1")
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    if (i == 0)
+                    {
+                        indexlist[i] = line.IndexOf(";");
+                    }
+                    else
+                    {
+                        indexlist[i] = line.IndexOf(";", indexlist[i - 1]+1);
+                    }
+                }
+                displayname = line.Substring(indexlist[0] + 1, indexlist[1] - indexlist[0] -1);
+                displayColor = Color.FromArgb(Convert.ToInt32(line.Substring(indexlist[1] + 1, indexlist[2] - indexlist[1] - 1)));
+                kp = Convert.ToInt32(line.Substring(indexlist[2] + 1, indexlist[3] - indexlist[2] - 1));
+                sollwert = Convert.ToInt32(line.Substring(indexlist[3] + 1, line.Length - indexlist[3] - 2));
+                return new P_Regler(kp, sollwert, displayname, displayColor);
+            }
+            else
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if (i == 0)
+                    {
+                        indexlist[i] = line.IndexOf(";");
+                    }
+                    else
+                    {
+                        indexlist[i] = line.IndexOf(";", indexlist[i - 1] + 1);
+                    }
+                }
+                displayname = line.Substring(indexlist[0] + 1, indexlist[1] - indexlist[0] - 1);
+                displayColor = Color.FromArgb(Convert.ToInt32(line.Substring(indexlist[1] + 1, indexlist[2] - indexlist[1] - 1)));
+                kr = Convert.ToInt32(line.Substring(indexlist[2] + 1, indexlist[3] - indexlist[2] - 1));
+                tn = Convert.ToInt32(line.Substring(indexlist[3] + 1, indexlist[4] - indexlist[3] - 1));
+                sollwert = Convert.ToInt32(line.Substring(indexlist[4] + 1, line.Length - indexlist[4] - 2));
+                return new PI_Regler(kr, tn, sollwert, displayname, displayColor);
+            }
+        }
+
+        private void btn_import_Click(object sender, EventArgs e)
+        {
+            importRegler();
         }
     }
 }

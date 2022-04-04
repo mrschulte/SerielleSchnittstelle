@@ -189,6 +189,10 @@ namespace SerielleSchnittstelle_Projekte
             this.btn_abbr.UseVisualStyleBackColor = true;
             this.btn_abbr.Click += new System.EventHandler(this.btn_abbr_Click);
             // 
+            // colorDialog1
+            // 
+            this.colorDialog1.SolidColorOnly = true;
+            // 
             // Form_NewRegler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

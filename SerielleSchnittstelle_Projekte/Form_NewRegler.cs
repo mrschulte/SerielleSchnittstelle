@@ -32,6 +32,10 @@ namespace SerielleSchnittstelle_Projekte
             {
                 displayColor = colorDialog1.Color;
             }
+            else
+            {
+                displayColor = Color.Gainsboro;
+            }
         }
 
         private void radioBtn_p_CheckedChanged(object sender, EventArgs e)
@@ -74,9 +78,9 @@ namespace SerielleSchnittstelle_Projekte
                             break;
                         }
 
-                        if(r.displayColor == displayColor)
+                        if(r.displayColor == displayColor || displayColor == Color.Gainsboro)
                         {
-                            MessageBox.Show("Es gibt bereits einen Regler mit dieser Farbe");
+                            MessageBox.Show("Diese Farbe ist nicht verfügbar");
                             ok = 0;
                             break;
                         }

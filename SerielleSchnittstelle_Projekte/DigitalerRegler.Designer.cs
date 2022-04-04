@@ -30,9 +30,9 @@ namespace SerielleSchnittstelle_Projekte
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btn_dashboard = new System.Windows.Forms.Button();
             this.comboBox_regler = new System.Windows.Forms.ComboBox();
@@ -56,6 +56,8 @@ namespace SerielleSchnittstelle_Projekte
             this.btn_settings = new System.Windows.Forms.Button();
             this.btn_reset = new System.Windows.Forms.Button();
             this.btn_resetall = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
+            this.btn_import = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,16 +66,16 @@ namespace SerielleSchnittstelle_Projekte
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(12, 12);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(556, 504);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -92,6 +94,7 @@ namespace SerielleSchnittstelle_Projekte
             // comboBox_regler
             // 
             this.comboBox_regler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox_regler.Enabled = false;
             this.comboBox_regler.FormattingEnabled = true;
             this.comboBox_regler.Location = new System.Drawing.Point(677, 137);
             this.comboBox_regler.Name = "comboBox_regler";
@@ -103,6 +106,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
+            this.label1.Enabled = false;
             this.label1.Location = new System.Drawing.Point(760, 121);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
@@ -112,6 +116,7 @@ namespace SerielleSchnittstelle_Projekte
             // btn_add
             // 
             this.btn_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_add.Enabled = false;
             this.btn_add.Location = new System.Drawing.Point(677, 164);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(27, 23);
@@ -123,6 +128,7 @@ namespace SerielleSchnittstelle_Projekte
             // btn_remove
             // 
             this.btn_remove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_remove.Enabled = false;
             this.btn_remove.Location = new System.Drawing.Point(710, 164);
             this.btn_remove.Name = "btn_remove";
             this.btn_remove.Size = new System.Drawing.Size(27, 23);
@@ -135,6 +141,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.txtBx_Kp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBx_Kp.Enabled = false;
             this.txtBx_Kp.Location = new System.Drawing.Point(677, 238);
             this.txtBx_Kp.Name = "txtBx_Kp";
             this.txtBx_Kp.Size = new System.Drawing.Size(121, 20);
@@ -144,6 +151,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.txtBx_Kr.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBx_Kr.Enabled = false;
             this.txtBx_Kr.Location = new System.Drawing.Point(677, 288);
             this.txtBx_Kr.Name = "txtBx_Kr";
             this.txtBx_Kr.Size = new System.Drawing.Size(121, 20);
@@ -153,6 +161,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.txtBx_Tn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBx_Tn.Enabled = false;
             this.txtBx_Tn.Location = new System.Drawing.Point(677, 332);
             this.txtBx_Tn.Name = "txtBx_Tn";
             this.txtBx_Tn.Size = new System.Drawing.Size(121, 20);
@@ -163,6 +172,7 @@ namespace SerielleSchnittstelle_Projekte
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
+            this.label2.Enabled = false;
             this.label2.Location = new System.Drawing.Point(778, 222);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(20, 13);
@@ -174,6 +184,7 @@ namespace SerielleSchnittstelle_Projekte
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
+            this.label3.Enabled = false;
             this.label3.Location = new System.Drawing.Point(778, 272);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(17, 13);
@@ -185,6 +196,7 @@ namespace SerielleSchnittstelle_Projekte
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
+            this.label4.Enabled = false;
             this.label4.Location = new System.Drawing.Point(775, 316);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(20, 13);
@@ -194,6 +206,7 @@ namespace SerielleSchnittstelle_Projekte
             // btn_update
             // 
             this.btn_update.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_update.Enabled = false;
             this.btn_update.Location = new System.Drawing.Point(680, 424);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(118, 43);
@@ -205,6 +218,7 @@ namespace SerielleSchnittstelle_Projekte
             // btn_cmd
             // 
             this.btn_cmd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_cmd.Enabled = false;
             this.btn_cmd.Location = new System.Drawing.Point(680, 473);
             this.btn_cmd.Name = "btn_cmd";
             this.btn_cmd.Size = new System.Drawing.Size(118, 43);
@@ -253,6 +267,7 @@ namespace SerielleSchnittstelle_Projekte
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
+            this.label6.Enabled = false;
             this.label6.Location = new System.Drawing.Point(751, 382);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 13);
@@ -263,6 +278,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.txtBx_sollwert.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBx_sollwert.Enabled = false;
             this.txtBx_sollwert.Location = new System.Drawing.Point(677, 398);
             this.txtBx_sollwert.Name = "txtBx_sollwert";
             this.txtBx_sollwert.Size = new System.Drawing.Size(121, 20);
@@ -271,6 +287,7 @@ namespace SerielleSchnittstelle_Projekte
             // btn_settings
             // 
             this.btn_settings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_settings.Enabled = false;
             this.btn_settings.Location = new System.Drawing.Point(748, 164);
             this.btn_settings.Name = "btn_settings";
             this.btn_settings.Size = new System.Drawing.Size(47, 23);
@@ -282,6 +299,7 @@ namespace SerielleSchnittstelle_Projekte
             // btn_reset
             // 
             this.btn_reset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_reset.Enabled = false;
             this.btn_reset.Location = new System.Drawing.Point(677, 193);
             this.btn_reset.Name = "btn_reset";
             this.btn_reset.Size = new System.Drawing.Size(60, 23);
@@ -293,6 +311,7 @@ namespace SerielleSchnittstelle_Projekte
             // btn_resetall
             // 
             this.btn_resetall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_resetall.Enabled = false;
             this.btn_resetall.Location = new System.Drawing.Point(738, 193);
             this.btn_resetall.Name = "btn_resetall";
             this.btn_resetall.Size = new System.Drawing.Size(60, 23);
@@ -301,11 +320,37 @@ namespace SerielleSchnittstelle_Projekte
             this.btn_resetall.UseVisualStyleBackColor = true;
             this.btn_resetall.Click += new System.EventHandler(this.btn_resetall_Click);
             // 
+            // btn_save
+            // 
+            this.btn_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_save.Enabled = false;
+            this.btn_save.Location = new System.Drawing.Point(581, 473);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(93, 43);
+            this.btn_save.TabIndex = 22;
+            this.btn_save.Text = "Regler speichern";
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            // 
+            // btn_import
+            // 
+            this.btn_import.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_import.Enabled = false;
+            this.btn_import.Location = new System.Drawing.Point(581, 424);
+            this.btn_import.Name = "btn_import";
+            this.btn_import.Size = new System.Drawing.Size(93, 43);
+            this.btn_import.TabIndex = 23;
+            this.btn_import.Text = "Regler importieren";
+            this.btn_import.UseVisualStyleBackColor = true;
+            this.btn_import.Click += new System.EventHandler(this.btn_import_Click);
+            // 
             // DigitalerRegler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 528);
+            this.Controls.Add(this.btn_import);
+            this.Controls.Add(this.btn_save);
             this.Controls.Add(this.btn_resetall);
             this.Controls.Add(this.btn_reset);
             this.Controls.Add(this.btn_settings);
@@ -363,5 +408,7 @@ namespace SerielleSchnittstelle_Projekte
         private System.Windows.Forms.Button btn_settings;
         private System.Windows.Forms.Button btn_reset;
         private System.Windows.Forms.Button btn_resetall;
+        private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.Button btn_import;
     }
 }
