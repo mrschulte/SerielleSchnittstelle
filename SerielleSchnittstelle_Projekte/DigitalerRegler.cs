@@ -140,7 +140,7 @@ namespace SerielleSchnittstelle_Projekte
                 reglerList.Add(new PI_Regler(kr, tn, sollwert, "PI-Beispiel", Color.GreenYellow));
                 updateReglerList(0);
                 updateValues(reglerList[0]);
-                updateChartSeries();
+                reloadChartSeries();
                 
             }
             else
@@ -166,6 +166,7 @@ namespace SerielleSchnittstelle_Projekte
                 catch (Exception ex) { MessageBox.Show("Error"); }
             }
         }
+
 
         private void updateValues(Regler selectedRegler)
         {
@@ -220,7 +221,7 @@ namespace SerielleSchnittstelle_Projekte
 
         }
 
-        private void updateChartSeries()
+        private void reloadChartSeries()
         {
             chart1.Series.Clear();
             foreach(Regler r in reglerList)
@@ -244,6 +245,18 @@ namespace SerielleSchnittstelle_Projekte
                 comboBox_regler.Items.Add(re.displayName);
             }
         }
+        
+        private void removeRegler(Regler r)
+        {
+            chart1.Series.Remove(chart1.Series.FindByName(r.displayName));
+            reglerList.Remove(r);
+            comboBox_regler.Items.Clear();
+            foreach (Regler re in reglerList)
+            {
+                comboBox_regler.Items.Add(re.displayName);
+            }
+            comboBox_regler.SelectedIndex = 0;
+        }
 
         public void updateReglerList()
         {
@@ -252,7 +265,7 @@ namespace SerielleSchnittstelle_Projekte
             {
                 comboBox_regler.Items.Add(r.displayName);
             }
-            updateChartSeries();
+            reloadChartSeries();
         }
 
         public void updateReglerList(int index)
@@ -262,7 +275,7 @@ namespace SerielleSchnittstelle_Projekte
             {
                 comboBox_regler.Items.Add(r.displayName);
             }
-            updateChartSeries();
+            reloadChartSeries();
             if (comboBox_regler.Items.Count > 0)
             {
                 comboBox_regler.SelectedIndex = index;
@@ -313,11 +326,10 @@ namespace SerielleSchnittstelle_Projekte
                     {
                         if (r.displayName == name)
                         {
-                            reglerList.Remove(r);
+                            removeRegler(r);
                             break;
                         }
                     }
-                    updateReglerList(0);
                     rpm = 0;
                     rpm_alt = 0;
                     seconds = 0;

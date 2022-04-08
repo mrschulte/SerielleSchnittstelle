@@ -15,7 +15,6 @@ namespace SerielleSchnittstelle_Projekte
         public Form_Ampel()
         {
             InitializeComponent();
-            serialPort1.Open();
         }
 
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
@@ -75,7 +74,18 @@ namespace SerielleSchnittstelle_Projekte
 
         private void button1_Click(object sender, EventArgs e)
         {
-            serialPort1.WriteLine("getvalues");
+            chart1.Series.Add("Test");
+            chart1.Series["Test"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            chart1.Series["Test"].Points.AddXY(0, 0);
+            chart1.Series["Test"].Points.AddXY(1, 1);
+            chart1.Series["Test"].Points.AddXY(2, 2);
+            chart1.Series["Test"].Points.AddXY(3, 3);
+            chart1.Series["Test"].Points.AddXY(4, 4);
+            chart1.Series["Test"].Points.AddXY(5, 5);
+            chart1.Series["Test"].Points.AddXY(6, 6);
+            chart1.Series["Test"].Points.AddXY(7, 7);
+            chart1.Series["Test"].Points.AddXY(8, 7);
+            chart1.Series["Test"].Points.AddXY(9, 8);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -87,6 +97,11 @@ namespace SerielleSchnittstelle_Projekte
         {
             serialPort1.DiscardOutBuffer();
             serialPort1.DiscardInBuffer();
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+            chart1.Series.Add("Test2");
         }
     }
 }
