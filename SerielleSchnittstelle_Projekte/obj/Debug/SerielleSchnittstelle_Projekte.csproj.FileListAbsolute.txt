@@ -26,3 +26,4 @@ C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git_SerielleSchnittstellePr
 C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git_SerielleSchnittstelleProjekte\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.Form_Ampel.resources
 C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git_SerielleSchnittstelleProjekte\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.DigitalerRegler.resources
 C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git_SerielleSchnittstelleProjekte\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.Form_NewRegler.resources
+C:\Users\mrsch\Documents\Schule\Automation\4. Klasse\Git_SerielleSchnittstelleProjekte\SerielleSchnittstelle_Projekte\obj\Debug\SerielleSchnittstelle_Projekte.Form_ReglerSettings.resources

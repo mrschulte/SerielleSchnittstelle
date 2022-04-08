@@ -20,6 +20,8 @@ namespace SerielleSchnittstelle_Projekte
 
         private int currentRegler; // 0=keiner, 1=PRegler, 2=PIRegler
         double seconds;
+        float rpm = 0;
+        float rpm_alt = 0;
 
         public List<Regler> reglerList;
         public DigitalerRegler()
@@ -146,15 +148,19 @@ namespace SerielleSchnittstelle_Projekte
             {
                 try
                 {
-                    System.Diagnostics.Debug.WriteLine("Line: " + line);
+                    /*System.Diagnostics.Debug.WriteLine("Line: " + line);
                     System.Diagnostics.Debug.WriteLine("Länge: " + line.Length);
-                    System.Diagnostics.Debug.WriteLine("Next");
-                    
-                    //System.Diagnostics.Debug.WriteLine(rpm.ToString());
+                    System.Diagnostics.Debug.WriteLine("Next");*/
+
+                    rpm = Convert.ToInt32(line);
+
                     if (time.IsRunning && line.Length > 0)
                     {
-                        Double rpm = (Double)Convert.ToInt32(line);
-                        chart1.Series[comboBox_regler.SelectedItem.ToString()].Points.AddXY(time.ElapsedMilliseconds / 1000, rpm);
+                        rpm = 0.8f * rpm_alt + 0.2f * rpm;
+                        System.Diagnostics.Debug.WriteLine(rpm.ToString());
+                        chart1.Series[comboBox_regler.SelectedItem.ToString()].Points.AddXY(seconds, rpm);
+                        seconds += 0.1;
+                        rpm_alt = rpm;
                     }
                     
                 }
@@ -209,7 +215,9 @@ namespace SerielleSchnittstelle_Projekte
                     break;
                 }
             }
-
+            seconds = 0;
+            rpm = 0;
+            rpm_alt = 0;
             updateValues(selectedRegler);
 
         }
@@ -299,6 +307,9 @@ namespace SerielleSchnittstelle_Projekte
                         }
                     }
                     updateReglerList(0);
+                    rpm = 0;
+                    rpm_alt = 0;
+                    seconds = 0;
                 }
             }
             
@@ -342,7 +353,7 @@ namespace SerielleSchnittstelle_Projekte
 
                 if (regler.Kr != Convert.ToInt32(txtBx_Kr.Text))
                 {
-                    regler.Kr = Convert.ToInt32(txtBx_Kp.Text);
+                    regler.Kr = Convert.ToInt32(txtBx_Kr.Text);
                     serialPort1.WriteLine("k" + regler.Kr + "e");
                 }
 
@@ -406,7 +417,7 @@ namespace SerielleSchnittstelle_Projekte
 
                     if (regler.Kr != Convert.ToInt32(txtBx_Kr.Text))
                     {
-                        regler.Kr = Convert.ToInt32(txtBx_Kp.Text);
+                        regler.Kr = Convert.ToInt32(txtBx_Kr.Text);
                     }
 
                     if (regler.Tn != Convert.ToInt32(txtBx_Tn.Text))
@@ -418,9 +429,9 @@ namespace SerielleSchnittstelle_Projekte
                     {
                         regler.sollwert = Convert.ToInt32(txtBx_sollwert.Text);
                     }
-                    serialPort1.WriteLine("k" + regler.Kr + "e");
+                    /*serialPort1.WriteLine("k" + regler.Kr + "e");
                     serialPort1.WriteLine("t" + regler.Tn + "e");
-                    serialPort1.WriteLine("w" + regler.sollwert + "e");
+                    serialPort1.WriteLine("w" + regler.sollwert + "e");*/
                     serialPort1.WriteLine("pistart");
                     time.Start();
                 }
@@ -460,6 +471,9 @@ namespace SerielleSchnittstelle_Projekte
                 {
                     time.Reset();
                 }
+                rpm = 0;
+                rpm_alt = 0;
+                seconds = 0;
             }
         }
 
@@ -481,6 +495,9 @@ namespace SerielleSchnittstelle_Projekte
                 {
                     time.Reset();
                 }
+                rpm = 0;
+                rpm_alt = 0;
+                seconds = 0;
             }
         }
 

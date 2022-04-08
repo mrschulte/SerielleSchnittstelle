@@ -56,5 +56,42 @@ namespace SerielleSchnittstelle_Projekte
             new DigitalerRegler().ShowDialog();
             this.Close();
         }
+
+        private void label_zeitdiagramm_Click(object sender, EventArgs e)
+        {
+            Form_Zeitdiagramm zeitdiagramm = new Form_Zeitdiagramm();
+            this.Hide();
+            zeitdiagramm.ShowDialog();
+            this.Close();
+        }
+
+        private void label_voltmeter_Click(object sender, EventArgs e)
+        {
+            Form_Voltmeter voltmeter = new Form_Voltmeter();
+            this.Hide();
+            voltmeter.ShowDialog();
+            this.Close();
+        }
+
+        private void label_seriellekom_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Form_Kommunikation().ShowDialog();
+            this.Close();
+        }
+
+        private void label_ampel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Form_Ampel().ShowDialog();
+            this.Close();
+        }
+
+        private void label_regler_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new DigitalerRegler().ShowDialog();
+            this.Close();
+        }
     }
 }
