@@ -15,7 +15,7 @@ namespace SerielleSchnittstelle_Projekte
         public delegate void USARTLesen();
         public USARTLesen USARTLesenPtr;
 
-        System.Diagnostics.Stopwatch time;
+        
 
 
         private int currentRegler; // 0=keiner, 1=PRegler, 2=PIRegler
@@ -31,7 +31,6 @@ namespace SerielleSchnittstelle_Projekte
             USARTLesenPtr = new USARTLesen(serialPort_Read);
             currentRegler = 0;
             seconds = 0.1;
-            time = new System.Diagnostics.Stopwatch();
 
             chart1.ChartAreas[0].AxisX.Minimum = 0;
             chart1.ChartAreas[0].AxisY.Minimum = 0;
@@ -154,7 +153,7 @@ namespace SerielleSchnittstelle_Projekte
 
                     rpm = Convert.ToInt32(line);
 
-                    if (time.IsRunning && line.Length > 0)
+                    if (line.Length > 0)
                     {
                         rpm = 0.8f * rpm_alt + 0.2f * rpm;
                         System.Diagnostics.Debug.WriteLine(rpm.ToString());
@@ -205,7 +204,6 @@ namespace SerielleSchnittstelle_Projekte
         {
             string displayname = comboBox_regler.SelectedItem.ToString();
             chart1.Series[displayname].Points.Clear();
-            time.Reset();
             Regler selectedRegler = null;
             foreach(Regler r in reglerList)
             {
@@ -231,6 +229,19 @@ namespace SerielleSchnittstelle_Projekte
                 chart1.Series.FindByName(r.displayName).Color = r.displayColor;
                 chart1.Series.FindByName(r.displayName).ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
                 chart1.Series.FindByName(r.displayName).BorderWidth = 2;
+            }
+        }
+
+        public void addRegler(Regler r)
+        {
+            chart1.Series.Add(r.displayName);
+            chart1.Series.FindByName(r.displayName).Color = r.displayColor;
+            chart1.Series.FindByName(r.displayName).ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            chart1.Series.FindByName(r.displayName).BorderWidth = 2;
+            comboBox_regler.Items.Clear();
+            foreach (Regler re in reglerList)
+            {
+                comboBox_regler.Items.Add(re.displayName);
             }
         }
 
@@ -408,7 +419,6 @@ namespace SerielleSchnittstelle_Projekte
                     serialPort1.WriteLine("p" + regler.Kp + "e");
                     serialPort1.WriteLine("w" + regler.sollwert + "e");
                     serialPort1.WriteLine("pstart");
-                    time.Start();
                 }
                 else
                 if (currentRegler == 2)
@@ -429,11 +439,10 @@ namespace SerielleSchnittstelle_Projekte
                     {
                         regler.sollwert = Convert.ToInt32(txtBx_sollwert.Text);
                     }
-                    /*serialPort1.WriteLine("k" + regler.Kr + "e");
+                    serialPort1.WriteLine("k" + regler.Kr + "e");
                     serialPort1.WriteLine("t" + regler.Tn + "e");
-                    serialPort1.WriteLine("w" + regler.sollwert + "e");*/
+                    serialPort1.WriteLine("w" + regler.sollwert + "e");
                     serialPort1.WriteLine("pistart");
-                    time.Start();
                 }
                 else
                 {
@@ -447,7 +456,6 @@ namespace SerielleSchnittstelle_Projekte
                 serialPort1.DiscardOutBuffer();
                 serialPort1.DiscardInBuffer();
                 btn_cmd.Text = "Regler starten";
-                time.Stop();
             }
         }
 
@@ -463,14 +471,6 @@ namespace SerielleSchnittstelle_Projekte
             if(result == DialogResult.Yes)
             {
                 chart1.Series[comboBox_regler.SelectedItem.ToString()].Points.Clear();
-                if(time.IsRunning)
-                {
-                    time.Restart();
-                }
-                else
-                {
-                    time.Reset();
-                }
                 rpm = 0;
                 rpm_alt = 0;
                 seconds = 0;
@@ -486,14 +486,6 @@ namespace SerielleSchnittstelle_Projekte
                 foreach(Regler r in reglerList)
                 {
                     chart1.Series[r.displayName].Points.Clear();
-                }
-                if(time.IsRunning)
-                {
-                    time.Restart();
-                }
-                else
-                {
-                    time.Reset();
                 }
                 rpm = 0;
                 rpm_alt = 0;

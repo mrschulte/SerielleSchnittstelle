@@ -91,7 +91,7 @@ namespace SerielleSchnittstelle_Projekte
                     {
                         P_Regler r = new P_Regler(kp, sollwert, displayname, displayColor);
                         digReglerInstance.reglerList.Add(r);
-                        digReglerInstance.updateReglerList(digReglerInstance.reglerList.IndexOf(r));
+                        digReglerInstance.addRegler(r);
                         this.Close();
                     }
 
