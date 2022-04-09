@@ -138,9 +138,7 @@ namespace SerielleSchnittstelle_Projekte
                 reglerList.Clear();
                 reglerList.Add(new P_Regler(kp, sollwert, "P-Beispiel", Color.Orange));
                 reglerList.Add(new PI_Regler(kr, tn, sollwert, "PI-Beispiel", Color.GreenYellow));
-                updateReglerList(0);
-                updateValues(reglerList[0]);
-                reloadChartSeries();
+                loadRegler();
                 
             }
             else
@@ -204,7 +202,6 @@ namespace SerielleSchnittstelle_Projekte
         private void comboBox_regler_SelectedIndexChanged(object sender, EventArgs e)
         {
             string displayname = comboBox_regler.SelectedItem.ToString();
-            chart1.Series[displayname].Points.Clear();
             Regler selectedRegler = null;
             foreach(Regler r in reglerList)
             {
@@ -214,6 +211,21 @@ namespace SerielleSchnittstelle_Projekte
                     break;
                 }
             }
+
+            if (selectedRegler.GetType().Name == "P_Regler")
+            {
+                currentRegler = 1;
+            }
+            else
+            if (selectedRegler.GetType().Name == "PI_Regler")
+            {
+                currentRegler = 2;
+            }
+            else
+            {
+                currentRegler = 0;
+            }
+
             seconds = 0;
             rpm = 0;
             rpm_alt = 0;
@@ -221,82 +233,43 @@ namespace SerielleSchnittstelle_Projekte
 
         }
 
-        private void reloadChartSeries()
+        /// <summary>
+        /// Lädt alle Regler neu
+        /// </summary>
+        private void loadRegler()
         {
             chart1.Series.Clear();
+            comboBox_regler.Items.Clear();
+
             foreach(Regler r in reglerList)
             {
-                chart1.Series.Add(r.displayName);
-                chart1.Series.FindByName(r.displayName).Color = r.displayColor;
-                chart1.Series.FindByName(r.displayName).ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-                chart1.Series.FindByName(r.displayName).BorderWidth = 2;
-            }
-        }
-
-        public void addRegler(Regler r)
-        {
-            chart1.Series.Add(r.displayName);
-            chart1.Series.FindByName(r.displayName).Color = r.displayColor;
-            chart1.Series.FindByName(r.displayName).ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            chart1.Series.FindByName(r.displayName).BorderWidth = 2;
-            comboBox_regler.Items.Clear();
-            foreach (Regler re in reglerList)
-            {
-                comboBox_regler.Items.Add(re.displayName);
-            }
-        }
-        
-        private void removeRegler(Regler r)
-        {
-            chart1.Series.Remove(chart1.Series.FindByName(r.displayName));
-            reglerList.Remove(r);
-            comboBox_regler.Items.Clear();
-            foreach (Regler re in reglerList)
-            {
-                comboBox_regler.Items.Add(re.displayName);
+                addRegler(r);
             }
             comboBox_regler.SelectedIndex = 0;
         }
 
-        public void updateReglerList()
+        public void setIndex(Regler r)
         {
-            comboBox_regler.Items.Clear();
-            foreach (Regler r in reglerList)
-            {
-                comboBox_regler.Items.Add(r.displayName);
-            }
-            reloadChartSeries();
+            comboBox_regler.SelectedIndex = comboBox_regler.Items.IndexOf(r.displayName);
         }
 
-        public void updateReglerList(int index)
+        public void addRegler(Regler r)
         {
-            comboBox_regler.Items.Clear();
-            foreach (Regler r in reglerList)
-            {
-                comboBox_regler.Items.Add(r.displayName);
-            }
-            reloadChartSeries();
-            if (comboBox_regler.Items.Count > 0)
-            {
-                comboBox_regler.SelectedIndex = index;
-                Regler selectedRegler = null;
-                foreach (Regler r in reglerList)
-                {
-                    if (r.displayName == comboBox_regler.SelectedItem.ToString())
-                    {
-                        selectedRegler = r;
-                        break;
-                    }
-                }
+            comboBox_regler.Items.Add(r.displayName);
+            chart1.Series.Add(r.displayName);
+            chart1.Series.FindByName(r.displayName).Color = r.displayColor;
+            chart1.Series.FindByName(r.displayName).ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            chart1.Series.FindByName(r.displayName).BorderWidth = 2;
+        }
 
-                if (selectedRegler.GetType() == new P_Regler(1, 1, "", Color.Black).GetType())
-                {
-                    currentRegler = 1;
-                }
-                else
-                {
-                    currentRegler = 2;
-                }
+        private void removeRegler(Regler r)
+        {
+            comboBox_regler.Items.Remove(r.displayName);
+            chart1.Series.Remove(chart1.Series.FindByName(r.displayName));
+            reglerList.Remove(r);
+            if(comboBox_regler.Items.Count > 0)
+            {
+                comboBox_regler.SelectedIndex = 0;
             }
             else
             {
@@ -306,8 +279,9 @@ namespace SerielleSchnittstelle_Projekte
                 txtBx_sollwert.Text = "";
                 txtBx_Tn.Text = "";
             }
-            
         }
+
+        
 
         private void btn_add_Click(object sender, EventArgs e)
         {
@@ -316,7 +290,7 @@ namespace SerielleSchnittstelle_Projekte
 
         private void btn_remove_Click(object sender, EventArgs e)
         {
-            if(reglerList.Count > 0)
+            if(reglerList.Count > 0 && comboBox_regler.SelectedItem.ToString().Length > 0)
             {
                 DialogResult result = MessageBox.Show("Regler wirklich löschen?", "Wirklich löschen?", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
@@ -479,14 +453,18 @@ namespace SerielleSchnittstelle_Projekte
 
         private void btn_reset_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Wollen Sie Wirklich die aufgenommenen Werte des ausgewählten Reglers löschen?", "Werte löschen", MessageBoxButtons.YesNo);
-            if(result == DialogResult.Yes)
+            if(comboBox_regler.SelectedItem.ToString().Length > 0)
             {
-                chart1.Series[comboBox_regler.SelectedItem.ToString()].Points.Clear();
-                rpm = 0;
-                rpm_alt = 0;
-                seconds = 0;
+                DialogResult result = MessageBox.Show("Wollen Sie Wirklich die aufgenommenen Werte des ausgewählten Reglers löschen?", "Werte löschen", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    chart1.Series[comboBox_regler.SelectedItem.ToString()].Points.Clear();
+                    rpm = 0;
+                    rpm_alt = 0;
+                    seconds = 0;
+                }
             }
+            
         }
 
         private void btn_resetall_Click(object sender, EventArgs e)
@@ -578,7 +556,7 @@ namespace SerielleSchnittstelle_Projekte
                     reglerList.Add(r);
                 }
             }
-            updateReglerList(0);
+            loadRegler();
             reader.Close();
         }
 

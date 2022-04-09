@@ -92,6 +92,7 @@ namespace SerielleSchnittstelle_Projekte
                         P_Regler r = new P_Regler(kp, sollwert, displayname, displayColor);
                         digReglerInstance.reglerList.Add(r);
                         digReglerInstance.addRegler(r);
+                        digReglerInstance.setIndex(r);
                         this.Close();
                     }
 
@@ -135,7 +136,8 @@ namespace SerielleSchnittstelle_Projekte
                     {
                         PI_Regler r = new PI_Regler(kr, tn, sollwert, displayname, displayColor);
                         digReglerInstance.reglerList.Add(r);
-                        digReglerInstance.updateReglerList(digReglerInstance.reglerList.IndexOf(r));
+                        digReglerInstance.addRegler(r);
+                        digReglerInstance.setIndex(r);
                         this.Close();
                     }
 
