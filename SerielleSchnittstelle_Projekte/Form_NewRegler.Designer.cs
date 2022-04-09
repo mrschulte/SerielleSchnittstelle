@@ -45,6 +45,7 @@ namespace SerielleSchnittstelle_Projekte
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_abbr = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.radioBt_sa = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // txt_name
@@ -91,7 +92,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 267);
+            this.label6.Location = new System.Drawing.Point(9, 273);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 26;
@@ -100,7 +101,7 @@ namespace SerielleSchnittstelle_Projekte
             // txtBx_sollwert
             // 
             this.txtBx_sollwert.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtBx_sollwert.Location = new System.Drawing.Point(12, 283);
+            this.txtBx_sollwert.Location = new System.Drawing.Point(12, 289);
             this.txtBx_sollwert.Name = "txtBx_sollwert";
             this.txtBx_sollwert.Size = new System.Drawing.Size(157, 20);
             this.txtBx_sollwert.TabIndex = 25;
@@ -109,7 +110,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 219);
+            this.label4.Location = new System.Drawing.Point(9, 225);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(20, 13);
             this.label4.TabIndex = 24;
@@ -119,7 +120,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 175);
+            this.label3.Location = new System.Drawing.Point(9, 181);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(17, 13);
             this.label3.TabIndex = 23;
@@ -129,7 +130,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 128);
+            this.label2.Location = new System.Drawing.Point(9, 134);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(20, 13);
             this.label2.TabIndex = 22;
@@ -138,7 +139,7 @@ namespace SerielleSchnittstelle_Projekte
             // txtBx_Tn
             // 
             this.txtBx_Tn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtBx_Tn.Location = new System.Drawing.Point(12, 235);
+            this.txtBx_Tn.Location = new System.Drawing.Point(12, 241);
             this.txtBx_Tn.Name = "txtBx_Tn";
             this.txtBx_Tn.Size = new System.Drawing.Size(157, 20);
             this.txtBx_Tn.TabIndex = 21;
@@ -146,7 +147,7 @@ namespace SerielleSchnittstelle_Projekte
             // txtBx_Kr
             // 
             this.txtBx_Kr.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtBx_Kr.Location = new System.Drawing.Point(12, 191);
+            this.txtBx_Kr.Location = new System.Drawing.Point(12, 197);
             this.txtBx_Kr.Name = "txtBx_Kr";
             this.txtBx_Kr.Size = new System.Drawing.Size(157, 20);
             this.txtBx_Kr.TabIndex = 20;
@@ -154,14 +155,14 @@ namespace SerielleSchnittstelle_Projekte
             // txtBx_Kp
             // 
             this.txtBx_Kp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtBx_Kp.Location = new System.Drawing.Point(12, 144);
+            this.txtBx_Kp.Location = new System.Drawing.Point(12, 150);
             this.txtBx_Kp.Name = "txtBx_Kp";
             this.txtBx_Kp.Size = new System.Drawing.Size(157, 20);
             this.txtBx_Kp.TabIndex = 19;
             // 
             // btn_color
             // 
-            this.btn_color.Location = new System.Drawing.Point(12, 309);
+            this.btn_color.Location = new System.Drawing.Point(12, 315);
             this.btn_color.Name = "btn_color";
             this.btn_color.Size = new System.Drawing.Size(69, 23);
             this.btn_color.TabIndex = 27;
@@ -171,7 +172,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(100, 309);
+            this.btn_save.Location = new System.Drawing.Point(100, 315);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(69, 23);
             this.btn_save.TabIndex = 28;
@@ -181,7 +182,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             // btn_abbr
             // 
-            this.btn_abbr.Location = new System.Drawing.Point(56, 338);
+            this.btn_abbr.Location = new System.Drawing.Point(56, 344);
             this.btn_abbr.Name = "btn_abbr";
             this.btn_abbr.Size = new System.Drawing.Size(69, 23);
             this.btn_abbr.TabIndex = 29;
@@ -193,11 +194,24 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.colorDialog1.SolidColorOnly = true;
             // 
+            // radioBt_sa
+            // 
+            this.radioBt_sa.AutoSize = true;
+            this.radioBt_sa.Location = new System.Drawing.Point(12, 113);
+            this.radioBt_sa.Name = "radioBt_sa";
+            this.radioBt_sa.Size = new System.Drawing.Size(94, 17);
+            this.radioBt_sa.TabIndex = 30;
+            this.radioBt_sa.TabStop = true;
+            this.radioBt_sa.Text = "Sprungantwort";
+            this.radioBt_sa.UseVisualStyleBackColor = true;
+            this.radioBt_sa.CheckedChanged += new System.EventHandler(this.radioBt_sa_CheckedChanged);
+            // 
             // Form_NewRegler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(181, 370);
+            this.Controls.Add(this.radioBt_sa);
             this.Controls.Add(this.btn_abbr);
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.btn_color);
@@ -240,5 +254,6 @@ namespace SerielleSchnittstelle_Projekte
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button btn_abbr;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.RadioButton radioBt_sa;
     }
 }

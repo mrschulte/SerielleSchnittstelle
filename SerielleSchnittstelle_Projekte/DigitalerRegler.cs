@@ -44,6 +44,8 @@ namespace SerielleSchnittstelle_Projekte
             string[] portnames = System.IO.Ports.SerialPort.GetPortNames();
             comboBox_ports.Items.Clear();
             comboBox_ports.Items.AddRange(portnames);
+            if(comboBox_ports.Items.Count > 0)
+                comboBox_ports.SelectedIndex = 0;
         }
 
         private void getProgrammedRegler()
@@ -138,6 +140,7 @@ namespace SerielleSchnittstelle_Projekte
                 reglerList.Clear();
                 reglerList.Add(new P_Regler(kp, sollwert, "P-Beispiel", Color.Orange));
                 reglerList.Add(new PI_Regler(kr, tn, sollwert, "PI-Beispiel", Color.GreenYellow));
+                reglerList.Add(new Sprungantwort("Sprungantwort", Color.Red));
                 loadRegler();
                 
             }
@@ -174,6 +177,7 @@ namespace SerielleSchnittstelle_Projekte
                 txtBx_Kp.Enabled = true;
                 txtBx_Kr.Enabled = false;
                 txtBx_Tn.Enabled = false;
+                txtBx_sollwert.Enabled = true;
                 currentRegler = 1;
                 txtBx_Kp.Text = regler.Kp.ToString();
                 txtBx_Kr.Text = "";
@@ -187,11 +191,25 @@ namespace SerielleSchnittstelle_Projekte
                 txtBx_Kp.Enabled = false;
                 txtBx_Kr.Enabled = true;
                 txtBx_Tn.Enabled = true;
+                txtBx_sollwert.Enabled = true;
                 currentRegler = 2;
                 txtBx_Kp.Text = "";
                 txtBx_Kr.Text = regler.Kr.ToString();
                 txtBx_Tn.Text = regler.Tn.ToString();
                 txtBx_sollwert.Text = regler.sollwert.ToString();
+            }
+            else
+            if(selectedRegler.GetType().Name == "Sprungantwort")
+            {
+                currentRegler = 3;
+                txtBx_Kp.Enabled = false;
+                txtBx_Kr.Enabled = false;
+                txtBx_Tn.Enabled = false;
+                txtBx_sollwert.Enabled = false;
+                txtBx_Kp.Text = "";
+                txtBx_Kr.Text = "";
+                txtBx_Tn.Text = "";
+                txtBx_sollwert.Text = "";
             }
             else
             {
@@ -211,7 +229,7 @@ namespace SerielleSchnittstelle_Projekte
                     break;
                 }
             }
-
+            System.Diagnostics.Debug.WriteLine(selectedRegler.GetType().Name);
             if (selectedRegler.GetType().Name == "P_Regler")
             {
                 currentRegler = 1;
@@ -220,6 +238,11 @@ namespace SerielleSchnittstelle_Projekte
             if (selectedRegler.GetType().Name == "PI_Regler")
             {
                 currentRegler = 2;
+            }
+            else
+            if(selectedRegler.GetType().Name == "Sprungantwort")
+            {
+                currentRegler = 3;
             }
             else
             {
@@ -367,6 +390,11 @@ namespace SerielleSchnittstelle_Projekte
                 }
             }
             else
+            if(currentRegler == 3)
+            {
+                serialPort1.WriteLine("s");
+            }
+            else
             {
                 MessageBox.Show("Es ist momentan kein Regler ausgewählt");
             }
@@ -431,6 +459,11 @@ namespace SerielleSchnittstelle_Projekte
                     serialPort1.WriteLine("pistart");
                 }
                 else
+                if(currentRegler == 3)
+                {
+                    serialPort1.WriteLine("sastart");
+                }
+                else
                 {
                     MessageBox.Show("Es ist momentan kein Regler ausgewählt");
                 }
@@ -448,7 +481,23 @@ namespace SerielleSchnittstelle_Projekte
         ///TODO
         private void btn_settings_Click(object sender, EventArgs e)
         {
+            new Form_ReglerEinstellungen(this, comboBox_regler.Text).ShowDialog();
+        }
 
+        public void dicker()
+        {
+            chart1.Series[comboBox_regler.Text].BorderWidth++;
+        }
+
+        public void duenner()
+        {
+            if (chart1.Series[comboBox_regler.Text].BorderWidth > 1)
+                chart1.Series[comboBox_regler.Text].BorderWidth--;
+        }
+
+        public System.Windows.Forms.DataVisualization.Charting.Chart getChart()
+        {
+            return chart1;
         }
 
         private void btn_reset_Click(object sender, EventArgs e)
@@ -521,9 +570,15 @@ namespace SerielleSchnittstelle_Projekte
                 reglerParameters = "[1;" + pr.displayName + ";" + pr.displayColor.ToArgb() + ";" + pr.Kp + ";" + pr.sollwert + "]";
             }
             else
+            if(r.GetType().Name == "PI_Regler")
             {
                 PI_Regler pir = (PI_Regler)r;
                 reglerParameters = "[2;" + pir.displayName + ";" + pir.displayColor.ToArgb() + ";" + pir.Kr + ";" + pir.Tn + ";" + pir.sollwert + "]";
+            }
+            else
+            {
+                Sprungantwort sa = (Sprungantwort)r;
+                reglerParameters = "[3;" + sa.displayName + ";" + sa.displayColor.ToArgb() + "]";
             }
             return reglerParameters;
         }
@@ -590,6 +645,7 @@ namespace SerielleSchnittstelle_Projekte
                 return new P_Regler(kp, sollwert, displayname, displayColor);
             }
             else
+            if(line[1].ToString() == "2")
             {
                 for (int i = 0; i < 5; i++)
                 {
@@ -609,11 +665,58 @@ namespace SerielleSchnittstelle_Projekte
                 sollwert = Convert.ToInt32(line.Substring(indexlist[4] + 1, line.Length - indexlist[4] - 2));
                 return new PI_Regler(kr, tn, sollwert, displayname, displayColor);
             }
+            else
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    if (i == 0)
+                    {
+                        indexlist[i] = line.IndexOf(";");
+                    }
+                    else
+                    {
+                        indexlist[i] = line.IndexOf(";", indexlist[i - 1] + 1);
+                    }
+                }
+                displayname = line.Substring(indexlist[0] + 1, indexlist[1] - indexlist[0] - 1);
+                displayColor = Color.FromArgb(Convert.ToInt32(line.Substring(indexlist[1] + 1, indexlist[2] - indexlist[1] - 1)));
+                return new Sprungantwort(displayname, displayColor);
+            }
         }
 
         private void btn_import_Click(object sender, EventArgs e)
         {
             importRegler();
+        }
+
+        private void btn_savePoints_Click(object sender, EventArgs e)
+        {
+            DialogResult result = saveFileDialog1.ShowDialog();
+
+            if(result == DialogResult.OK)
+            {
+                string path = saveFileDialog1.FileName;
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(path);
+                foreach (Regler r in reglerList)
+                {
+                    string constructedString = constructString(r);
+                    string line = "{" + constructedString + "}:{";
+                    for(int i = 0; i < chart1.Series[r.displayName].Points.Count; i++)
+                    {
+                        line += "[" + chart1.Series[r.displayName].Points[i].XValue + ";" + chart1.Series[r.displayName].Points[i].YValues[0] + "]";
+                    }
+                    line += "}";
+                    writer.WriteLine(line);
+                }
+                writer.Close();
+                MessageBox.Show("Die aufgenommenen Werte wurden gespeichert. Pfad: " + path);
+            }
+        }
+
+        private void btn_image_Click(object sender, EventArgs e)
+        {
+            chart1.SaveImage("test", System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Jpeg);
+
         }
     }
 }

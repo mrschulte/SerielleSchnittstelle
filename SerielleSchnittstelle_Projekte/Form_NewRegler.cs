@@ -45,6 +45,7 @@ namespace SerielleSchnittstelle_Projekte
                 txtBx_Kp.Enabled = true;
                 txtBx_Kr.Enabled = false;
                 txtBx_Tn.Enabled = false;
+                txtBx_sollwert.Enabled = true;
             }
         }
 
@@ -55,6 +56,7 @@ namespace SerielleSchnittstelle_Projekte
                 txtBx_Kp.Enabled = false;
                 txtBx_Kr.Enabled = true;
                 txtBx_Tn.Enabled = true;
+                txtBx_sollwert.Enabled = true;
             }
         }
 
@@ -123,9 +125,9 @@ namespace SerielleSchnittstelle_Projekte
                             break;
                         }
 
-                        if (r.displayColor == displayColor)
+                        if (r.displayColor == displayColor || displayColor == Color.Gainsboro)
                         {
-                            MessageBox.Show("Es gibt bereits einen Regler mit dieser Farbe");
+                            MessageBox.Show("Diese Farbe ist nicht verfügbar");
                             ok = 0;
                             break;
                         }
@@ -148,6 +150,59 @@ namespace SerielleSchnittstelle_Projekte
                     MessageBox.Show(ex.Message);
                 }
 
+            }
+            else
+            if(radioBt_sa.Checked)
+            {
+                try
+                {
+                    int ok = 1;
+                    string displayname = txt_name.Text;
+
+                    foreach (Regler r in digReglerInstance.reglerList)
+                    {
+                        if (r.displayName == displayname)
+                        {
+                            MessageBox.Show("Es gibt bereits einen Regler mit diesem Namen");
+                            ok = 0;
+                            break;
+                        }
+
+                        if (r.displayColor == displayColor || displayColor == Color.Gainsboro)
+                        {
+                            MessageBox.Show("Diese Farbe ist nicht verfügbar");
+                            ok = 0;
+                            break;
+                        }
+
+                    }
+
+                    if (ok == 1)
+                    {
+                        Sprungantwort sa = new Sprungantwort(displayname, displayColor);
+                        digReglerInstance.reglerList.Add(sa);
+                        digReglerInstance.addRegler(sa);
+                        digReglerInstance.setIndex(sa);
+                        this.Close();
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void radioBt_sa_CheckedChanged(object sender, EventArgs e)
+        {
+            if(radioBt_sa.Checked)
+            {
+                txtBx_Kp.Enabled = false;
+                txtBx_Kr.Enabled = false;
+                txtBx_sollwert.Enabled = false;
+                txtBx_Tn.Enabled = false;
             }
         }
     }
