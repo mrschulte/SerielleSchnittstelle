@@ -80,12 +80,6 @@
     <Compile Include="Form_ReglerEinstellungen.Designer.cs">
       <DependentUpon>Form_ReglerEinstellungen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_ReglerSettings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form_ReglerSettings.Designer.cs">
-      <DependentUpon>Form_ReglerSettings.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form_Voltmeter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,9 +118,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_ReglerEinstellungen.resx">
       <DependentUpon>Form_ReglerEinstellungen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form_ReglerSettings.resx">
-      <DependentUpon>Form_ReglerSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Voltmeter.resx">
       <DependentUpon>Form_Voltmeter.cs</DependentUpon>

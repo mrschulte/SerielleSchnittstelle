@@ -79,7 +79,7 @@ namespace SerielleSchnittstelle_Projekte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(120, 116);
+            this.ClientSize = new System.Drawing.Size(103, 114);
             this.Controls.Add(this.checkBx_show);
             this.Controls.Add(this.btn_duenner);
             this.Controls.Add(this.btn_dicker);

@@ -18,7 +18,7 @@ namespace SerielleSchnittstelle_Projekte
         
 
 
-        private int currentRegler; // 0=keiner, 1=PRegler, 2=PIRegler
+        private int currentRegler; // 0=keiner, 1=PRegler, 2=PIRegler, 3=Sprungantwort ( Kein Regler ) 
         double seconds;
         float rpm = 0;
         float rpm_alt = 0;
@@ -135,7 +135,7 @@ namespace SerielleSchnittstelle_Projekte
                 int tn = Convert.ToInt32(line.Substring(pos2 + 1, pos3 - pos2 - 1));
                 int sollwert = Convert.ToInt32(line.Substring(pos3 + 1, line.Length - pos3 - 1));
 
-                //System.Diagnostics.Debug.WriteLine(kp + " " + kr + " " + tn + " " + sollwert);
+                System.Diagnostics.Debug.WriteLine(kp + " " + kr + " " + tn + " " + sollwert);
 
                 reglerList.Clear();
                 reglerList.Add(new P_Regler(kp, sollwert, "P-Beispiel", Color.Orange));
@@ -164,7 +164,7 @@ namespace SerielleSchnittstelle_Projekte
                     }
                     
                 }
-                catch (Exception ex) { MessageBox.Show("Error"); }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
         }
 
@@ -233,16 +233,19 @@ namespace SerielleSchnittstelle_Projekte
             if (selectedRegler.GetType().Name == "P_Regler")
             {
                 currentRegler = 1;
+                btn_cmd.Text = "Regler starten";
             }
             else
             if (selectedRegler.GetType().Name == "PI_Regler")
             {
                 currentRegler = 2;
+                btn_cmd.Text = "Regler starten";
             }
             else
             if(selectedRegler.GetType().Name == "Sprungantwort")
             {
                 currentRegler = 3;
+                btn_cmd.Text = "Sprungantwort messen";
             }
             else
             {
@@ -402,7 +405,7 @@ namespace SerielleSchnittstelle_Projekte
 
         private void btn_cmd_Click(object sender, EventArgs e)
         {
-            if (btn_cmd.Text == "Regler starten")
+            if (btn_cmd.Text == "Regler starten" || btn_cmd.Text == "Sprungantwort messen")
             {
                 Regler selectedRegler = null;
 
@@ -433,6 +436,8 @@ namespace SerielleSchnittstelle_Projekte
                     serialPort1.WriteLine("p" + regler.Kp + "e");
                     serialPort1.WriteLine("w" + regler.sollwert + "e");
                     serialPort1.WriteLine("pstart");
+                    System.Diagnostics.Debug.WriteLine("P");
+                    btn_cmd.Text = "Regler stoppen";
                 }
                 else
                 if (currentRegler == 2)
@@ -457,24 +462,35 @@ namespace SerielleSchnittstelle_Projekte
                     serialPort1.WriteLine("t" + regler.Tn + "e");
                     serialPort1.WriteLine("w" + regler.sollwert + "e");
                     serialPort1.WriteLine("pistart");
+                    System.Diagnostics.Debug.WriteLine("PI");
+                    btn_cmd.Text = "Regler stoppen";
                 }
                 else
                 if(currentRegler == 3)
                 {
                     serialPort1.WriteLine("sastart");
+                    btn_cmd.Text = "Messung stoppen";
+                    System.Diagnostics.Debug.WriteLine("d");
                 }
                 else
                 {
                     MessageBox.Show("Es ist momentan kein Regler ausgewählt");
                 }
-                btn_cmd.Text = "Regler stoppen";
+                
             }
             else
             {
                 serialPort1.WriteLine("stop");
                 serialPort1.DiscardOutBuffer();
                 serialPort1.DiscardInBuffer();
-                btn_cmd.Text = "Regler starten";
+                if (currentRegler != 3)
+                {
+                    btn_cmd.Text = "Regler starten";
+                }
+                else
+                {
+                    btn_cmd.Text = "Sprungantwort messen";
+                }
             }
         }
 
@@ -715,7 +731,15 @@ namespace SerielleSchnittstelle_Projekte
 
         private void btn_image_Click(object sender, EventArgs e)
         {
-            chart1.SaveImage("test", System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Jpeg);
+            
+
+            DialogResult result = saveFileDialog2.ShowDialog();
+
+            if(result == DialogResult.OK)
+            {
+                string path = saveFileDialog2.FileName;
+                chart1.SaveImage(path + ".jpeg", System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Jpeg);
+            }
 
         }
     }

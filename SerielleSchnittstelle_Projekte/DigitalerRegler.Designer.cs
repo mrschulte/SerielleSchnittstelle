@@ -61,6 +61,7 @@ namespace SerielleSchnittstelle_Projekte
             this.btn_savePoints = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.btn_image = new System.Windows.Forms.Button();
+            this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -442,5 +443,6 @@ namespace SerielleSchnittstelle_Projekte
         private System.Windows.Forms.Button btn_savePoints;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button btn_image;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog2;
     }
 }
